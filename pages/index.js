@@ -5,7 +5,26 @@ import Link from 'next/link';
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaProjectDiagram, FaUsers, FaArrowRight } from 'react-icons/fa';
+import {
+  FaRegCalendarAlt,
+  FaUserPlus,
+  FaRocket,
+  FaLightbulb,
+  FaHandshake,
+  FaGoogle,
+  FaMicrosoft,
+  FaAmazon,
+  FaApple,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaYoutube,
+  FaProjectDiagram,
+  FaUsers,
+  FaArrowRight
+} from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
@@ -150,12 +169,28 @@ export default function Home() {
             <TeamCard img="/team/asmaa.jpg" name="Asmaa Ben Ali" role="Vice‑présidente" />
             <TeamCard img="/team/hamza.jpg" name="Hamza Ouali" role="Secrétaire" />
             <TeamCard img="/team/aya.jpg" name="Aya Karim" role="Trésorière" />
+            <TeamCard img="/team/iyad.jpg" name="Iyad Beddidi" role="Responsable RH" />
           </div>
           <div className="text-center mt-10">
             <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
               <span>Découvrir toute l’équipe</span>
               <FaArrowRight />
             </Link>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Réseaux Sociaux */}
+      <AnimatedSection id="socials" className="py-20 bg-white" direction="up">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">Réseaux sociaux</h2>
+          <div className="flex justify-center flex-wrap gap-6">
+            <SocialIcon href="https://instagram.com/clubdscc" icon={FaInstagram} />
+            <SocialIcon href="https://linkedin.com/company/clubdscc" icon={FaLinkedin} />
+            <SocialIcon href="https://github.com/clubdscc" icon={FaGithub} />
+            <SocialIcon href="https://facebook.com/clubdscc" icon={FaFacebook} />
+            <SocialIcon href="https://twitter.com/clubdscc" icon={FaTwitter} />
+            <SocialIcon href="https://youtube.com/clubdscc" icon={FaYoutube} />
           </div>
         </div>
       </AnimatedSection>
@@ -252,6 +287,20 @@ function IconTrust({ icon: Icon }) {
     >
       <Icon size={64} className="text-dsccGreen" />
     </motion.div>
+  )
+}
+
+function SocialIcon({ icon: Icon, href }) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      className="text-3xl p-4 rounded-full bg-dsccGreen/10 text-dsccGreen hover:bg-dsccGreen hover:text-white transition"
+    >
+      <Icon />
+    </motion.a>
   )
 }
 
