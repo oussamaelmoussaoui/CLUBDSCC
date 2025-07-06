@@ -9,7 +9,7 @@ export default function Header(){
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/">
           <span className="flex items-center gap-2 cursor-pointer">
-            <Image src="/logo.png" alt="DSCC logo" width={40} height={40} className="bg-transparent" />
+            <Image src="/logopng.png" alt="DSCC logo" width={40} height={40} className="bg-transparent" />
           </span>
         </Link>
         <nav className="flex gap-4 overflow-x-auto no-scrollbar items-center text-sm dark:text-white">
