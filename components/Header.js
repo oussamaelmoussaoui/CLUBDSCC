@@ -4,7 +4,7 @@ import DarkModeToggle from './DarkModeToggle'
 
 export default function Header(){
   return (
-    <header className="bg-white dark:bg-darkText shadow">
+    <header className="bg-white/80 dark:bg-darkText/80 backdrop-blur sticky top-0 z-50 shadow-md">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/">
           <span className="flex items-center gap-2 cursor-pointer">
@@ -19,7 +19,10 @@ export default function Header(){
           <Link href="/datathonx" className="hover:text-tealBrand transition">DatathonX</Link>
           <Link href="/team" className="hover:text-tealBrand transition">Équipe</Link>
           <Link href="/resources" className="hover:text-tealBrand transition">Ressources</Link>
-          <Link href="/contact" className="bg-orangeBrand text-white px-4 py-2 rounded hover:opacity-90 transition">Contact</Link>
+          <Link href="/contact" className="flex items-center bg-orangeBrand text-white px-4 py-2 rounded hover:opacity-90 transition">
+            <span>Contact</span>
+            <span className="ml-1">✉️</span>
+          </Link>
           <DarkModeToggle />
         </nav>
       </div>
