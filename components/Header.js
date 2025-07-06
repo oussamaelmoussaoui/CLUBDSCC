@@ -30,7 +30,6 @@ export default function Header(){
           <Link href="/projects" className="hover:text-dsccGreen transition whitespace-nowrap">Projets</Link>
           <Link href="/datathonx" className="hover:text-dsccGreen transition whitespace-nowrap">DatathonX</Link>
           <Link href="/team" className="hover:text-dsccGreen transition whitespace-nowrap">Équipe</Link>
-          <Link href="/resources#laureats" className="hover:text-dsccGreen transition whitespace-nowrap">Lauréats</Link>
           <Link href="/resources" className="hover:text-dsccGreen transition whitespace-nowrap">Ressources</Link>
           <Link href="/contact" className="flex items-center bg-dsccOrange text-white px-4 py-2 rounded hover:opacity-90 transition whitespace-nowrap">
             <span>Contact</span>
