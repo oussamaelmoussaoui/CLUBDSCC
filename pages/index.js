@@ -61,7 +61,7 @@ export default function Home() {
       <section id="events" className="py-20 bg-lightGray">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos Événements</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="masonry">
             <EventCard img="/event1.jpg" title="Atelier Machine Learning" tag="Atelier" />
             <EventCard img="/event2.jpg" title="Introduction à Python" tag="Session" />
             <EventCard img="/event3.jpg" title="Live IA" tag="Live" />
@@ -132,7 +132,7 @@ function Objective({ icon: Icon, title }){
 
 function EventCard({ img, title, tag }){
   return (
-    <div className="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
+    <div className="masonry-item bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
       <Image src={img} alt={title} width={400} height={250} className="w-full h-48 object-cover" />
       <div className="p-4">
         <span className="text-xs uppercase tracking-wider text-dsccOrange">{tag}</span>
