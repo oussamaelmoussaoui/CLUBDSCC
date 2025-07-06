@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 export default function DarkModeToggle(){
   const [enabled, setEnabled] = useState(false)
@@ -12,7 +13,7 @@ export default function DarkModeToggle(){
 
   return (
     <button onClick={() => setEnabled(!enabled)} className="ml-3 text-xl">
-      {enabled ? '☀️' : '🌙'}
+      {enabled ? <FaSun /> : <FaMoon />}
     </button>
   )
 }

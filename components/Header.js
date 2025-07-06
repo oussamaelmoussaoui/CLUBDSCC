@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import DarkModeToggle from './DarkModeToggle'
+import { FaEnvelope } from 'react-icons/fa'
 
 export default function Header(){
   return (
@@ -21,7 +22,7 @@ export default function Header(){
           <Link href="/resources" className="hover:text-tealBrand transition">Ressources</Link>
           <Link href="/contact" className="flex items-center bg-orangeBrand text-white px-4 py-2 rounded hover:opacity-90 transition">
             <span>Contact</span>
-            <span className="ml-1">✉️</span>
+            <FaEnvelope className="ml-1" />
           </Link>
           <DarkModeToggle />
         </nav>
