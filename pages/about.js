@@ -1,4 +1,6 @@
 import Layout from '../components/Layout'
+import Counter from '../components/Counter'
+import ImageSlider from '../components/ImageSlider'
 
 export default function Page(){
   return (
@@ -30,12 +32,38 @@ export default function Page(){
             <li><strong>Secrétaire :</strong> D. Salma</li>
           </ul>
         </div>
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Chiffres clés</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-4xl font-bold text-dsccOrange">
+                <Counter to={12} />
+              </p>
+              <p className="uppercase tracking-wide text-sm">Projets</p>
+            </div>
+            <div>
+              <p className="text-4xl font-bold text-dsccOrange">
+                <Counter to={45} />
+              </p>
+              <p className="uppercase tracking-wide text-sm">Membres actifs</p>
+            </div>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[1,2].map(n => (
             <div key={n} className="p-4 border rounded-lg hover:bg-tealBrand hover:text-white transition">
               “J’ai appris à collaborer et à innover grâce au club.”
             </div>
           ))}
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">Ils nous font confiance</h2>
+          <ImageSlider images={[
+            '/sponsors/google.svg',
+            '/sponsors/amazon.svg',
+            '/sponsors/microsoft.svg',
+            '/sponsors/facebook.svg',
+          ]} />
         </div>
       </section>
     </Layout>
