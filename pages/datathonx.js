@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   return (
     <Layout title="DatathonX">
-      <section className="container mx-auto py-16 px-4 space-y-8">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="up" delay={0.1}>
         <h1 className="text-3xl font-bold mb-6">DatathonX – 3e édition</h1>
         <p>La compétition annuelle dédiée aux passionnés de data. Étudiants, professionnels et chercheurs sont invités à collaborer sur des problématiques concrètes.</p>
 
@@ -56,7 +57,7 @@ export default function Page(){
           <input required type="email" placeholder="Email" className="border p-2 w-full rounded" />
           <button type="submit" className="bg-orangeBrand text-white px-4 py-2 rounded">Envoyer</button>
         </form>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }

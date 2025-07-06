@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   return (
     <Layout title="Événements">
-      <section className="container mx-auto py-16 px-4 space-y-10">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-10" direction="down" delay={0.1}>
         <h1 className="text-3xl font-bold mb-6">Événements & Activités</h1>
         <div>
           <h2 className="text-2xl font-semibold mb-2">Ateliers</h2>
@@ -23,7 +24,7 @@ export default function Page(){
           ))}
         </div>
         <p className="mt-4">Replays complets disponibles sur <a href="#" className="text-tealBrand underline">Instagram</a> et <a href="#" className="text-tealBrand underline">YouTube</a>.</p>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }

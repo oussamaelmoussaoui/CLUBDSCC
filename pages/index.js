@@ -1,10 +1,11 @@
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Image from 'next/image';
 import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaCodeBranch } from 'react-icons/fa';
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
   const slides = ['/hero1.jpg','/hero2.jpg','/hero3.jpg'];
@@ -12,18 +13,26 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((index + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [index]);
+      setIndex(i => (i + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <Layout title="Accueil">
       {/* Hero */}
-      <section
-        className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white transition-all duration-1000"
-        style={{ backgroundImage: `url(${slides[index]})` }}
-      >
+      <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-white">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slides[index]}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slides[index]})` }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1 }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-black/50" />
         <motion.div
           className="relative z-10 text-center px-4"
@@ -48,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 bg-white">
+      <AnimatedSection id="about" className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">À propos du club</h2>
           <p className="max-w-3xl mx-auto text-lg mb-10">
@@ -61,10 +70,10 @@ export default function Home() {
             <Objective icon={FaHandshake} title="Collaboration"/>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Events Preview */}
-      <section id="events" className="py-20 bg-lightGray">
+      <AnimatedSection id="events" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos Événements</h2>
           <div className="masonry">
@@ -77,10 +86,10 @@ export default function Home() {
             <Link href="/events" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les événements →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Projects Preview */}
-      <section id="projects" className="py-20 bg-white">
+      <AnimatedSection id="projects" className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -92,10 +101,10 @@ export default function Home() {
             <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les projets →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Team Preview */}
-      <section id="team" className="py-20 bg-lightGray">
+      <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
           <div className="flex flex-wrap justify-center gap-10">
@@ -108,10 +117,10 @@ export default function Home() {
             <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange">Découvrir toute l’équipe →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Contact */}
-      <section id="contact" className="py-20 bg-dsccGreen text-white">
+      <AnimatedSection id="contact" className="py-20 bg-dsccGreen text-white" direction="up">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Contact</h2>
           <p className="mb-8">Une question ? Un projet ? Envoyez‑nous un message !</p>
@@ -122,7 +131,7 @@ export default function Home() {
             <button className="bg-dsccOrange hover:bg-white hover:text-dsccOrange font-semibold py-3 rounded-md transition">Envoyer</button>
           </form>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }
@@ -138,31 +147,52 @@ function Objective({ icon: Icon, title }){
 
 function EventCard({ img, title, tag }){
   return (
-    <div className="masonry-item bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
+    <motion.div
+      className="masonry-item bg-white rounded-lg shadow overflow-hidden"
+      whileHover={{ scale: 1.03 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={img} alt={title} width={400} height={250} className="w-full h-48 object-cover" />
       <div className="p-4">
         <span className="text-xs uppercase tracking-wider text-dsccOrange">{tag}</span>
         <h4 className="text-lg font-semibold">{title}</h4>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 function ProjectCard({ icon, title }){
   return (
-    <div className="bg-lightGray rounded-xl p-6 text-center shadow hover:shadow-lg transition">
+    <motion.div
+      className="bg-lightGray rounded-xl p-6 text-center shadow"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={icon} alt={title} width={64} height={64} className="mx-auto mb-4" />
       <h4 className="font-semibold">{title}</h4>
-    </div>
+    </motion.div>
   )
 }
 
 function TeamCard({ img, name, role }){
   return (
-    <div className="text-center">
+    <motion.div
+      className="text-center"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={img} alt={name} width={120} height={120} className="rounded-full mx-auto mb-3 object-cover" />
       <h5 className="font-semibold">{name}</h5>
       <p className="text-sm text-dsccOrange">{role}</p>
-    </div>
+    </motion.div>
   )
 }
