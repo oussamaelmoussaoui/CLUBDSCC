@@ -16,7 +16,7 @@ body {
 }
 
   .slide-right {
-    animation: slideRight 20s linear infinite;
+    animation: slideRight 40s linear infinite;
   }
 
 @keyframes slideLeft {
@@ -25,7 +25,7 @@ body {
 }
 
   .slide-left {
-    animation: slideLeft 20s linear infinite;
+    animation: slideLeft 40s linear infinite;
   }
 
 @layer utilities {
