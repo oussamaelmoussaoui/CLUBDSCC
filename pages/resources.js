@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection'
 export default function Page(){
   return (
     <Layout title="Ressources">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-6">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-6" direction="right">
         <h1 className="text-3xl font-bold mb-6">Ressources</h1>
         <ul className="list-disc pl-5">
           <li><a href="/smartnews360.pdf" className="text-tealBrand underline">Rapport SmartNews360</a></li>

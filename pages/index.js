@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <AnimatedSection id="about" className="py-20 bg-white">
+      <AnimatedSection id="about" className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">À propos du club</h2>
           <p className="max-w-3xl mx-auto text-lg mb-10">
@@ -65,7 +65,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Events Preview */}
-      <AnimatedSection id="events" className="py-20 bg-lightGray">
+      <AnimatedSection id="events" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos Événements</h2>
           <div className="masonry">
@@ -81,7 +81,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Projects Preview */}
-      <AnimatedSection id="projects" className="py-20 bg-white">
+      <AnimatedSection id="projects" className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -96,7 +96,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Team Preview */}
-      <AnimatedSection id="team" className="py-20 bg-lightGray">
+      <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
           <div className="flex flex-wrap justify-center gap-10">
@@ -112,7 +112,7 @@ export default function Home() {
       </AnimatedSection>
 
       {/* Contact */}
-      <AnimatedSection id="contact" className="py-20 bg-dsccGreen text-white">
+      <AnimatedSection id="contact" className="py-20 bg-dsccGreen text-white" direction="up">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Contact</h2>
           <p className="mb-8">Une question ? Un projet ? Envoyez‑nous un message !</p>

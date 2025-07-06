@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection'
 export default function Page(){
   return (
     <Layout title="Notre Équipe">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="down">
         <h1 className="text-3xl font-bold mb-6">Notre Équipe</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {members.map(m => (

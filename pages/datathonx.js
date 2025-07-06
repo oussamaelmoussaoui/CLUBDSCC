@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection'
 export default function Page(){
   return (
     <Layout title="DatathonX">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="up">
         <h1 className="text-3xl font-bold mb-6">DatathonX – 3e édition</h1>
         <p>La compétition annuelle dédiée aux passionnés de data. Étudiants, professionnels et chercheurs sont invités à collaborer sur des problématiques concrètes.</p>
 
