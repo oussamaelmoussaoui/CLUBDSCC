@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion'
 
-export default function AnimatedSection({ children, className, direction = 'up', delay = 0, ...props }) {
+export default function AnimatedSection({
+  children,
+  className,
+  direction = 'up',
+  delay = 0,
+  stagger = 0,
+  ...props
+}) {
   const distance = 75
   const computeOffset = dir => {
     switch (dir) {
@@ -17,7 +24,12 @@ export default function AnimatedSection({ children, className, direction = 'up',
 
   const variants = {
     hidden: { opacity: 0, ...computeOffset(direction) },
-    visible: { opacity: 1, x: 0, y: 0 }
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { staggerChildren: stagger, delayChildren: delay }
+    }
   }
 
   return (

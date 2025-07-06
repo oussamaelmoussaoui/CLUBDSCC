@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection'
 export default function Page(){
   return (
     <Layout title="Contact">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="right">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="right" delay={0.1}>
         <h1 className="text-3xl font-bold mb-6">Contact</h1>
         <form className="max-w-md space-y-4" onSubmit={e => {e.preventDefault(); alert('Message envoyé!')}}>
           <input required placeholder="Nom" className="border p-2 w-full rounded" />

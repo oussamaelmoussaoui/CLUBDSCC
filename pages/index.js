@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Image from 'next/image';
@@ -13,18 +13,26 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((index + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [index]);
+      setIndex(i => (i + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <Layout title="Accueil">
       {/* Hero */}
-      <section
-        className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white transition-all duration-1000"
-        style={{ backgroundImage: `url(${slides[index]})` }}
-      >
+      <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-white">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slides[index]}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slides[index]})` }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 1 }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-black/50" />
         <motion.div
           className="relative z-10 text-center px-4"
@@ -139,31 +147,52 @@ function Objective({ icon: Icon, title }){
 
 function EventCard({ img, title, tag }){
   return (
-    <div className="masonry-item bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden">
+    <motion.div
+      className="masonry-item bg-white rounded-lg shadow overflow-hidden"
+      whileHover={{ scale: 1.03 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={img} alt={title} width={400} height={250} className="w-full h-48 object-cover" />
       <div className="p-4">
         <span className="text-xs uppercase tracking-wider text-dsccOrange">{tag}</span>
         <h4 className="text-lg font-semibold">{title}</h4>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
 function ProjectCard({ icon, title }){
   return (
-    <div className="bg-lightGray rounded-xl p-6 text-center shadow hover:shadow-lg transition">
+    <motion.div
+      className="bg-lightGray rounded-xl p-6 text-center shadow"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={icon} alt={title} width={64} height={64} className="mx-auto mb-4" />
       <h4 className="font-semibold">{title}</h4>
-    </div>
+    </motion.div>
   )
 }
 
 function TeamCard({ img, name, role }){
   return (
-    <div className="text-center">
+    <motion.div
+      className="text-center"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 300 }}
+    >
       <Image src={img} alt={name} width={120} height={120} className="rounded-full mx-auto mb-3 object-cover" />
       <h5 className="font-semibold">{name}</h5>
       <p className="text-sm text-dsccOrange">{role}</p>
-    </div>
+    </motion.div>
   )
 }

@@ -11,7 +11,7 @@ export default function Page(){
 
   return (
     <Layout title="Le Club">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-12" direction="up">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-12" direction="up" delay={0.1}>
         <h1 className="text-3xl font-bold">Data Science Club ENSA</h1>
         <ImageSlider images={images} />
 
