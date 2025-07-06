@@ -12,8 +12,15 @@ export default function DarkModeToggle(){
   }, [enabled])
 
   return (
-    <button onClick={() => setEnabled(!enabled)} className="ml-3 text-xl">
-      {enabled ? <FaSun /> : <FaMoon />}
+    <button
+      onClick={() => setEnabled(!enabled)}
+      className="ml-3 p-2 rounded-full bg-dsccGreen/10 hover:bg-dsccGreen/20 transition-colors text-2xl"
+    >
+      {enabled ? (
+        <FaSun className="text-dsccOrange" />
+      ) : (
+        <FaMoon className="text-dsccGreen" />
+      )}
     </button>
   )
 }
