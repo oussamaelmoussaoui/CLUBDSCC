@@ -1,72 +1,118 @@
 import Layout from '../components/Layout'
 import AnimatedSection from '../components/AnimatedSection'
-import { FaPaperPlane } from 'react-icons/fa'
+import Counter from '../components/Counter'
+import ImageSlider from '../components/ImageSlider'
+import Link from 'next/link'
+import {
+  FaUsers,
+  FaRegClock,
+  FaTrophy,
+  FaArrowRight
+} from 'react-icons/fa'
 
-export default function Page(){
+export default function Page() {
+  const stats = [
+    { icon: FaUsers, count: 120, label: 'Participants' },
+    { icon: FaRegClock, count: 48, label: 'Heures de challenge' },
+    { icon: FaTrophy, count: 3, label: 'Éditions' }
+  ]
+  const images = ['/1.jpg', '/2.jpg', '/IMG-20250215-WA0007.jpg']
   return (
     <Layout title="DatathonX">
-      <section className="relative w-full h-64 md:h-[300px] overflow-hidden flex items-center justify-center text-white">
+      {/* Hero */}
+      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/1.jpg)' }} />
-        <div className="absolute inset-0 bg-dsccGreen/70" />
-        <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold">DatathonX</h1>
+        <div className="absolute inset-0 bg-gradient-to-r from-dsccGreen/70 to-dsccOrange/70" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">DatathonX</h1>
+          <p className="max-w-2xl mx-auto text-lg md:text-xl">
+            La compétition data science ouverte à tous les passionnés.
+          </p>
+        </div>
       </section>
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8" direction="up" delay={0.1}>
-        <h1 className="text-3xl font-bold mb-6">DatathonX – 3e édition</h1>
-        <p>La compétition annuelle dédiée aux passionnés de data. Étudiants, professionnels et chercheurs sont invités à collaborer sur des problématiques concrètes.</p>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Domaines</h2>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Santé</li>
-            <li>Agriculture</li>
-            <li>Environnement</li>
-          </ul>
+      {/* Stats */}
+      <AnimatedSection className="py-16 bg-white" direction="up">
+        <div className="mx-auto grid sm:grid-cols-3 gap-8 max-w-5xl px-4">
+          {stats.map((s, i) => (
+            <Stat key={i} {...s} />
+          ))}
         </div>
+      </AnimatedSection>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Planning</h2>
-          <table className="table-auto text-left">
-            <tbody>
-              <tr><td className="pr-4 font-medium">Jour 1</td><td>Workshops et formation des équipes</td></tr>
-              <tr><td className="pr-4 font-medium">Jour 2</td><td>Développement du projet et présentation finale</td></tr>
-            </tbody>
-          </table>
+      {/* Details */}
+      <AnimatedSection className="py-20 bg-lightGray" direction="left">
+        <div className="container mx-auto px-4 space-y-8">
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Domaines explorés</h2>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Santé</li>
+              <li>Agriculture</li>
+              <li>Environnement</li>
+            </ul>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Planning</h2>
+            <table className="table-auto text-left">
+              <tbody>
+                <tr>
+                  <td className="pr-4 font-medium">Jour 1</td>
+                  <td>Workshops et formation des équipes</td>
+                </tr>
+                <tr>
+                  <td className="pr-4 font-medium">Jour 2</td>
+                  <td>Développement et présentation finale</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Livrables attendus</h2>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Rapport détaillé</li>
+              <li>Code source</li>
+              <li>Slides de présentation</li>
+            </ul>
+          </div>
         </div>
+      </AnimatedSection>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Livrables</h2>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Rapport détaillé</li>
-            <li>Code sur GitHub</li>
-            <li>Slides de présentation</li>
-            <li>Démo fonctionnelle</li>
-          </ul>
+      {/* Highlights */}
+      <AnimatedSection className="py-20 bg-white" direction="right">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Éditions précédentes</h2>
+          <ImageSlider images={images} />
         </div>
+      </AnimatedSection>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Critères d’évaluation</h2>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Qualité technique – 40%</li>
-            <li>Innovation – 30%</li>
-            <li>Présentation – 20%</li>
-            <li>Impact réel – 10%</li>
-          </ul>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1,2,3,4].map(n => (<div key={n} className="h-32 bg-gray-200 rounded" />))}
-        </div>
-
-        <form className="max-w-md space-y-4" onSubmit={e => {e.preventDefault(); alert('Inscription envoyée!')}}>
-          <h2 className="text-2xl font-semibold">Inscription prochaine édition</h2>
-          <input required placeholder="Nom" className="border p-2 w-full rounded" />
-          <input required type="email" placeholder="Email" className="border p-2 w-full rounded" />
-          <button type="submit" className="bg-dsccOrange text-white px-4 py-2 rounded inline-flex items-center gap-2">
-            <span>Envoyer</span>
-            <FaPaperPlane />
-          </button>
-        </form>
+      {/* Join call */}
+      <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
+        <h2 className="text-3xl font-bold mb-4">Participez à la prochaine édition&nbsp;!</h2>
+        <p className="mb-6 max-w-2xl mx-auto text-lg">
+          Relevez des défis data en équipe et remportez de superbes prix.
+        </p>
+        <Link
+          href="/contact"
+          className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded inline-flex items-center gap-2 transition"
+        >
+          <span>Nous contacter</span>
+          <FaArrowRight />
+        </Link>
       </AnimatedSection>
     </Layout>
+  )
+}
+
+function Stat({ icon: Icon, count, label }) {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <div className="flex items-center justify-center w-16 h-16 mb-4 bg-dsccGreen/10 text-dsccGreen rounded-full">
+        <Icon size={32} />
+      </div>
+      <span className="text-4xl font-extrabold text-dsccGreen">
+        <Counter to={count} duration={1200} />
+      </span>
+      <p className="mt-2 text-lg">{label}</p>
+    </div>
   )
 }
