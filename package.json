@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vite": "vite"
+    "vite": "vite",
+    "postinstall": "npx next-swc-arch patch --quiet || true"
   },
   "dependencies": {
     "next": "14.2.3",
