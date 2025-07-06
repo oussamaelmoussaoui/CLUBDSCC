@@ -8,6 +8,7 @@ export default function Dashboard() {
   const [events, setEvents] = useState([])
   const [drives, setDrives] = useState([])
   const [laureats, setLaureats] = useState([])
+  const [messages, setMessages] = useState([])
   const [laureatName, setLaureatName] = useState('')
   const [laureatLinkedIn, setLaureatLinkedIn] = useState('')
   const [name, setName] = useState('')
@@ -32,6 +33,8 @@ export default function Dashboard() {
       if (storedDrives) setDrives(JSON.parse(storedDrives))
       const storedLaureats = localStorage.getItem('customLaureats')
       if (storedLaureats) setLaureats(JSON.parse(storedLaureats))
+      const storedMessages = localStorage.getItem('contactMessages')
+      if (storedMessages) setMessages(JSON.parse(storedMessages))
     }
   }, [router])
 
@@ -99,6 +102,12 @@ export default function Dashboard() {
     const updated = laureats.filter((_, i) => i !== index)
     setLaureats(updated)
     localStorage.setItem('customLaureats', JSON.stringify(updated))
+  }
+
+  const removeMessage = (index) => {
+    const updated = messages.filter((_, i) => i !== index)
+    setMessages(updated)
+    localStorage.setItem('contactMessages', JSON.stringify(updated))
   }
 
   const logout = () => {
@@ -243,6 +252,17 @@ export default function Dashboard() {
             <div key={i} className="border rounded p-4 flex justify-between items-center">
               <a href={l.linkedin} className="text-dsccGreen underline">{l.name}</a>
               <button onClick={() => removeLaureat(i)} className="text-red-500 text-sm underline">Remove</button>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-semibold my-4">Messages reçus</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {messages.map((m, i) => (
+            <div key={i} className="border rounded p-4">
+              <p className="font-semibold">{m.name} – {m.email}</p>
+              <p className="text-sm mb-2">{m.message}</p>
+              <button onClick={() => removeMessage(i)} className="text-red-500 text-sm underline">Remove</button>
             </div>
           ))}
         </div>
