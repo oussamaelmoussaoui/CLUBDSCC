@@ -57,7 +57,6 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <Image src="/logopng.png" alt="DSCC logo" width={120} height={120} className="mx-auto mb-6" />
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">L’innovation par la donnée</h1>
           <p className="max-w-xl mx-auto text-lg md:text-xl mb-8">
             Le Club Data Science de l’ENSA s’engage à promouvoir l’apprentissage,

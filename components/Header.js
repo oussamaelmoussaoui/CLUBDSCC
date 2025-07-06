@@ -10,7 +10,7 @@ export default function Header(){
       <div className="container mx-auto flex items-center justify-between p-4 relative">
         <Link href="/">
           <span className="flex items-center gap-2 cursor-pointer">
-            <Image src="/logopng.png" alt="DSCC logo" width={80} height={80} className="bg-transparent" />
+            <Image src="/logopng.png" alt="DSCC logo" width={65} height={65} className="bg-transparent" />
           </span>
         </Link>
         <button
