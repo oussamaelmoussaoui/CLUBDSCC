@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaProjectDiagram, FaUsers } from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
@@ -58,15 +58,9 @@ export default function Home() {
       </section>
       {/* Stats */}
       <AnimatedSection id="stats" className="py-16 bg-lightGray" direction="up">
-        <div className="mx-auto flex flex-col sm:flex-row justify-around items-center max-w-5xl bg-white shadow-2xl rounded-2xl px-8 py-8">
-          <div>
-            <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={14} duration={1200} /></span>
-            <p className="mt-2 text-lg">Projets réalisés</p>
-          </div>
-          <div>
-            <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={80} duration={1200} /></span>
-            <p className="mt-2 text-lg">Membres actifs</p>
-          </div>
+        <div className="mx-auto grid sm:grid-cols-2 gap-8 max-w-5xl bg-white shadow-2xl rounded-2xl px-8 py-12">
+          <Stat icon={FaProjectDiagram} count={14} label="Projets réalisés" />
+          <Stat icon={FaUsers} count={80} label="Membres actifs" />
         </div>
       </AnimatedSection>
 
@@ -238,5 +232,17 @@ function IconTrust({ icon: Icon }) {
     >
       <Icon size={48} className="text-dsccGreen" />
     </motion.div>
+  )
+}
+
+function Stat({ icon: Icon, count, label }) {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <div className="flex items-center justify-center w-16 h-16 mb-4 bg-dsccGreen/10 text-dsccGreen rounded-full">
+        <Icon size={32} />
+      </div>
+      <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={count} duration={1200} /></span>
+      <p className="mt-2 text-lg">{label}</p>
+    </div>
   )
 }
