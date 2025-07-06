@@ -164,12 +164,11 @@ export default function Home() {
       <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
             <TeamCard img="/team/jawad.jpg" name="Jawad Elkharrati" role="Président" />
             <TeamCard img="/team/asmaa.jpg" name="Asmaa Ben Ali" role="Vice‑présidente" />
             <TeamCard img="/team/hamza.jpg" name="Hamza Ouali" role="Secrétaire" />
             <TeamCard img="/team/aya.jpg" name="Aya Karim" role="Trésorière" />
-            <TeamCard img="/team/iyad.jpg" name="Iyad Beddidi" role="Responsable RH" />
           </div>
           <div className="text-center mt-10">
             <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
