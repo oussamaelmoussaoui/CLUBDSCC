@@ -18,5 +18,5 @@ export default function Counter({ to = 0, duration = 1000 }) {
     return () => clearInterval(timer)
   }, [to, duration])
 
-  return <span>{count}</span>
+  return <span>{count}+</span>
 }
