@@ -3,6 +3,7 @@ import AnimatedSection from '../components/AnimatedSection'
 import Counter from '../components/Counter'
 import ImageSlider from '../components/ImageSlider'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import {
   FaRegCalendarAlt,
   FaUsers,
@@ -12,11 +13,19 @@ import {
 } from 'react-icons/fa'
 
 export default function Page() {
+  const [customEvents, setCustomEvents] = useState([])
+
+  useEffect(() => {
+    const stored = localStorage.getItem('customEvents')
+    if (stored) setCustomEvents(JSON.parse(stored))
+  }, [])
+
   const upcoming = [
     { title: 'Atelier Python avancé', date: '15 juin 2024', location: 'Salle 101' },
     { title: 'Conférence IA éthique', date: '28 juin 2024', location: 'Amphi A' },
     { title: 'Hackathon Data4Good', date: '10 juillet 2024', location: 'ENSA' }
   ]
+  const allEvents = [...upcoming, ...customEvents]
   const images = ['/1.jpg', '/2.jpg', '/IMG-20250215-WA0007.jpg']
   return (
     <Layout title="Événements">
@@ -50,7 +59,7 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Prochains rendez-vous</h2>
           <div className="space-y-6 max-w-3xl mx-auto">
-            {upcoming.map((e, i) => (
+            {allEvents.map((e, i) => (
               <div key={i} className="p-4 bg-white rounded shadow">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <FaRegCalendarAlt className="text-dsccOrange" /> {e.title}
