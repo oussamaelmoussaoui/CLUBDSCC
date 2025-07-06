@@ -215,7 +215,7 @@ function Objective({ icon: Icon, title }) {
 function IconTrust({ src }) {
   return (
     <div className="p-6 bg-white shadow rounded-2xl flex items-center justify-center">
-      <Image src={src} alt="logo" width={64} height={64} className="w-16 h-16 object-contain" />
+      <Image src={src} alt="logo" width={80} height={80} className="w-20 h-20 object-contain" />
     </div>
   )
 }

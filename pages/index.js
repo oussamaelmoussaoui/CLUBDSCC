@@ -57,6 +57,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
+          <Image src="/logopng.png" alt="DSCC logo" width={120} height={120} className="mx-auto mb-6" />
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">L’innovation par la donnée</h1>
           <p className="max-w-xl mx-auto text-lg md:text-xl mb-8">
             Le Club Data Science de l’ENSA s’engage à promouvoir l’apprentissage,
@@ -292,7 +293,7 @@ function IconTrust({ src }) {
       transition={{ duration: 0.5 }}
       className="p-6 bg-white shadow rounded-2xl flex items-center justify-center"
     >
-      <Image src={src} alt="logo" width={64} height={64} className="w-16 h-16 object-contain" />
+      <Image src={src} alt="logo" width={80} height={80} className="w-20 h-20 object-contain" />
     </motion.div>
   )
 }
