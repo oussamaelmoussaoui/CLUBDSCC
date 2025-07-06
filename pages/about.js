@@ -1,80 +1,106 @@
 import Layout from '../components/Layout'
 import AnimatedSection from '../components/AnimatedSection'
 import Counter from '../components/Counter'
-import ImageSlider from '../components/ImageSlider'
+import Image from 'next/image'
+import {
+  FaProjectDiagram,
+  FaUsers,
+  FaLightbulb,
+  FaRocket,
+  FaHandshake
+} from 'react-icons/fa'
 
 export default function Page() {
   return (
     <Layout title="À propos">
-      <AnimatedSection className="container mx-auto py-16 px-4 space-y-10" direction="left" delay={0.1}>
-        <h1 className="text-3xl font-bold mb-6">À propos de nous</h1>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Historique</h2>
-          <p>Fondé en 2020, le Data Science Club s’est donné pour mission de populariser l’analyse de données et l’IA au sein de l’ENSA.</p>
+      {/* Hero */}
+      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80"
+          style={{ backgroundImage: 'url(/1.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-dsccGreen/70" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">À propos du club</h1>
+          <p className="max-w-2xl mx-auto text-lg md:text-xl">
+            Depuis 2020, nous réunissons les passionnés de données pour apprendre et innover ensemble.
+          </p>
         </div>
+      </section>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Objectifs</h2>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Former les étudiants aux outils de la data</li>
-            <li>Favoriser l’apprentissage collaboratif</li>
-            <li>Concrétiser des projets innovants</li>
-          </ul>
+      {/* Stats */}
+      <AnimatedSection className="py-16 bg-white" direction="up">
+        <div className="mx-auto grid sm:grid-cols-2 gap-8 max-w-5xl px-4">
+          <Stat icon={FaProjectDiagram} count={14} label="Projets réalisés" />
+          <Stat icon={FaUsers} count={80} label="Membres actifs" />
         </div>
+      </AnimatedSection>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Valeurs</h2>
-          <p>Innovation, apprentissage continu et entraide sont au cœur de notre fonctionnement.</p>
+      {/* Values */}
+      <AnimatedSection className="py-20 bg-lightGray" direction="left">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">Nos valeurs</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Objective icon={FaLightbulb} title="Innovation" />
+            <Objective icon={FaRocket} title="Apprentissage" />
+            <Objective icon={FaHandshake} title="Collaboration" />
+          </div>
         </div>
+      </AnimatedSection>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">Comité</h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            <li><strong>Président :</strong> A. El Idrissi</li>
-            <li><strong>Vice-présidente :</strong> B. Khadija</li>
-            <li><strong>Trésorier :</strong> C. Yassine</li>
-            <li><strong>Secrétaire :</strong> D. Salma</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Chiffres clés</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-4xl font-bold text-dsccOrange">
-                <Counter to={12} />
-              </p>
-              <p className="uppercase tracking-wide text-sm">Projets</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold text-dsccOrange">
-                <Counter to={45} />
-              </p>
-              <p className="uppercase tracking-wide text-sm">Membres actifs</p>
+      {/* Trust */}
+      <AnimatedSection className="py-20 bg-white" direction="right">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
+          <div className="overflow-hidden">
+            <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
+              {Array.from({ length: 20 }, (_, i) => {
+                const logos = [
+                  '/sponsors/google.svg',
+                  '/sponsors/microsoft.svg',
+                  '/sponsors/amazon.svg',
+                  '/sponsors/facebook.svg'
+                ]
+                const src = logos[i % logos.length]
+                return <IconTrust key={i} src={src} />
+              })}
             </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[1, 2].map(n => (
-            <div key={n} className="p-4 border rounded-lg hover:bg-dsccGreen hover:text-white transition">
-              “J’ai appris à collaborer et à innover grâce au club.”
-            </div>
-          ))}
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Ils nous font confiance</h2>
-          <ImageSlider images={[
-            '/sponsors/google.svg',
-            '/sponsors/amazon.svg',
-            '/sponsors/microsoft.svg',
-            '/sponsors/facebook.svg',
-          ]} />
-        </div>
-
       </AnimatedSection>
     </Layout>
+  )
+}
+
+function Objective({ icon: Icon, title }) {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="text-dsccOrange text-5xl mb-4">
+        <Icon />
+      </div>
+      <h3 className="text-xl font-semibold">{title}</h3>
+    </div>
+  )
+}
+
+function IconTrust({ src }) {
+  return (
+    <div className="p-6 bg-white shadow rounded-2xl flex items-center justify-center">
+      <Image src={src} alt="logo" width={64} height={64} className="w-16 h-16 object-contain" />
+    </div>
+  )
+}
+
+function Stat({ icon: Icon, count, label }) {
+  return (
+    <div className="flex flex-col items-center text-center">
+      <div className="flex items-center justify-center w-16 h-16 mb-4 bg-dsccGreen/10 text-dsccGreen rounded-full">
+        <Icon size={32} />
+      </div>
+      <span className="text-4xl font-extrabold text-dsccGreen">
+        <Counter to={count} duration={1200} />
+      </span>
+      <p className="mt-2 text-lg">{label}</p>
+    </div>
   )
 }
