@@ -134,13 +134,14 @@ export default function Page() {
             images={[
               '/event/Screenshot 2025-07-06 212003.png',
               '/event/Screenshot 2025-07-06 212023.png',
-              '/event/Screenshot 2025-07-06 212041.png',
+              '/event/Screenshot 2025-07-06 212041.png'
+            ]}
+          />
+          <ImageSlider
+            images={[
               '/event/Screenshot 2025-07-06 212101.png',
               '/event/Screenshot 2025-07-06 212116.png',
-              '/event/Screenshot 2025-07-06 212130.png',
-              '/1.jpg',
-              '/2.jpg',
-              '/IMG-20250215-WA0007.jpg'
+              '/event/Screenshot 2025-07-06 212130.png'
             ]}
           />
           <Timeline />

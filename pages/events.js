@@ -26,16 +26,15 @@ export default function Page() {
     { title: 'Hackathon Data4Good', date: '10 juillet 2024', location: 'ENSA' }
   ]
   const allEvents = [...upcoming, ...customEvents]
-  const images = [
+  const images1 = [
     '/event/Screenshot 2025-07-06 212003.png',
     '/event/Screenshot 2025-07-06 212023.png',
-    '/event/Screenshot 2025-07-06 212041.png',
+    '/event/Screenshot 2025-07-06 212041.png'
+  ]
+  const images2 = [
     '/event/Screenshot 2025-07-06 212101.png',
     '/event/Screenshot 2025-07-06 212116.png',
-    '/event/Screenshot 2025-07-06 212130.png',
-    '/1.jpg',
-    '/2.jpg',
-    '/IMG-20250215-WA0007.jpg'
+    '/event/Screenshot 2025-07-06 212130.png'
   ]
   return (
     <Layout title="Événements">
@@ -87,7 +86,8 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-white" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Moments forts</h2>
-          <ImageSlider images={images} />
+          <ImageSlider images={images1} />
+          <ImageSlider images={images2} />
         </div>
       </AnimatedSection>
 
