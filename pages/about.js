@@ -65,10 +65,17 @@ export default function Page() {
             <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
               {Array.from({ length: 20 }, (_, i) => {
                 const logos = [
-                  '/sponsors/google.svg',
-                  '/sponsors/microsoft.svg',
-                  '/sponsors/amazon.svg',
-                  '/sponsors/facebook.svg'
+                  '/sponsors/1631326041576.jfif',
+                  '/sponsors/49-1120_company_import.jpg',
+                  '/sponsors/Assabah-logo.jpg',
+                  '/sponsors/COMMUNE-OUJDA-LOGO-01.png',
+                  '/sponsors/Cerhso.jpg',
+                  '/sponsors/ENSA Oujda.png',
+                  '/sponsors/Screenshot 2025-07-06 204840.png',
+                  '/sponsors/Societe-Generale-Emploi-Recrutement.png',
+                  '/sponsors/images (1).jfif',
+                  '/sponsors/images.png',
+                  '/sponsors/unnamed.png'
                 ]
                 const src = logos[i % logos.length]
                 return <IconTrust key={i} src={src} />
