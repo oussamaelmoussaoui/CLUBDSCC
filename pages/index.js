@@ -145,7 +145,7 @@ export default function Home() {
       <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
-          <div className="flex flex-wrap justify-center gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
             <TeamCard img="/team/jawad.jpg" name="Jawad Elkharrati" role="Président" />
             <TeamCard img="/team/asmaa.jpg" name="Asmaa Ben Ali" role="Vice‑présidente" />
             <TeamCard img="/team/hamza.jpg" name="Hamza Ouali" role="Secrétaire" />
@@ -224,15 +224,17 @@ function ProjectCard({ icon, title }){
 function TeamCard({ img, name, role }){
   return (
     <motion.div
-      className="text-center shadow-md rounded-xl p-4"
+      className="bg-white dark:bg-darkText text-center shadow-lg rounded-2xl p-6 transition-shadow hover:shadow-xl"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
-      <Image src={img} alt={name} width={120} height={120} className="rounded-full mx-auto mb-3 object-cover" />
-      <h5 className="font-semibold">{name}</h5>
+      <div className="relative w-32 h-32 mx-auto mb-4">
+        <Image src={img} alt={name} fill className="rounded-full object-cover ring-4 ring-dsccGreen" />
+      </div>
+      <h5 className="font-semibold text-lg">{name}</h5>
       <p className="text-sm text-dsccOrange">{role}</p>
     </motion.div>
   )
