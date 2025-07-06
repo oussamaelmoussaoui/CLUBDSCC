@@ -10,7 +10,7 @@ export default function Page(){
           {members.map(m => (
             <div key={m.name} className="text-center">
               <div className="h-32 w-32 mx-auto rounded-full bg-gray-200 mb-2 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-tealBrand text-white transition" >{m.quote}</div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white transition" >{m.quote}</div>
               </div>
               <p className="font-semibold">{m.name}</p>
               <p className="text-sm text-gray-500">{m.role}</p>

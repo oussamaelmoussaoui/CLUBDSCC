@@ -11,7 +11,7 @@ export default function Page(){
             <a key={p.name} href={p.link} className="border rounded-lg p-6 shadow hover:shadow-lg transition block">
               <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
               <p className="text-sm mb-4">{p.desc}</p>
-              <span className="text-tealBrand underline">GitHub</span>
+              <span className="text-dsccGreen underline">GitHub</span>
             </a>
           ))}
         </div>

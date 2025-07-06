@@ -23,7 +23,7 @@ export default function Page(){
             <div key={n} className="masonry-item h-32 bg-gray-200 rounded" />
           ))}
         </div>
-        <p className="mt-4">Replays complets disponibles sur <a href="#" className="text-tealBrand underline">Instagram</a> et <a href="#" className="text-tealBrand underline">YouTube</a>.</p>
+        <p className="mt-4">Replays complets disponibles sur <a href="#" className="text-dsccGreen underline">Instagram</a> et <a href="#" className="text-dsccGreen underline">YouTube</a>.</p>
       </AnimatedSection>
     </Layout>
   )

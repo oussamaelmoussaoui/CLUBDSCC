@@ -55,7 +55,7 @@ export default function Page(){
           <h2 className="text-2xl font-semibold">Inscription prochaine édition</h2>
           <input required placeholder="Nom" className="border p-2 w-full rounded" />
           <input required type="email" placeholder="Email" className="border p-2 w-full rounded" />
-          <button type="submit" className="bg-orangeBrand text-white px-4 py-2 rounded">Envoyer</button>
+          <button type="submit" className="bg-dsccOrange text-white px-4 py-2 rounded">Envoyer</button>
         </form>
       </AnimatedSection>
     </Layout>

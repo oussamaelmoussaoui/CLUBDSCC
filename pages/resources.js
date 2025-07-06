@@ -7,8 +7,8 @@ export default function Page(){
       <AnimatedSection className="container mx-auto py-16 px-4 space-y-6" direction="right" delay={0.1}>
         <h1 className="text-3xl font-bold mb-6">Ressources</h1>
         <ul className="list-disc pl-5">
-          <li><a href="/smartnews360.pdf" className="text-tealBrand underline">Rapport SmartNews360</a></li>
-          <li><a href="/datathonx-roadmap.pdf" className="text-tealBrand underline">Feuille de route DatathonX</a></li>
+          <li><a href="/smartnews360.pdf" className="text-dsccGreen underline">Rapport SmartNews360</a></li>
+          <li><a href="/datathonx-roadmap.pdf" className="text-dsccGreen underline">Feuille de route DatathonX</a></li>
         </ul>
         <div>
           <h2 className="text-2xl font-semibold mb-2">Tutoriels</h2>

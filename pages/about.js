@@ -58,7 +58,7 @@ export default function Page() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[1, 2].map(n => (
-            <div key={n} className="p-4 border rounded-lg hover:bg-tealBrand hover:text-white transition">
+            <div key={n} className="p-4 border rounded-lg hover:bg-dsccGreen hover:text-white transition">
               “J’ai appris à collaborer et à innover grâce au club.”
             </div>
           ))}
