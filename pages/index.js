@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import Link from 'next/link'
 import Image from 'next/image'
+import { FaRegCalendarAlt, FaUserPlus, FaEnvelope, FaBolt, FaRocket, FaLightbulb } from 'react-icons/fa'
 
 export default function Home(){
   return (
@@ -12,16 +13,16 @@ export default function Home(){
           <p className="mb-8 text-lg max-w-2xl">Bienvenue au Data Science Club de l’ENSA. Nous explorons l’IA et la data pour créer des projets à impact.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/events" className="bg-white/90 text-tealBrand font-semibold px-6 py-3 rounded shadow hover:shadow-lg flex items-center">
-              Événements<span className="ml-2">📅</span>
+              Événements<FaRegCalendarAlt className="ml-2" />
             </Link>
             <Link href="/join" className="bg-orangeBrand text-white font-semibold px-6 py-3 rounded shadow hover:shadow-lg flex items-center">
-              Rejoindre<span className="ml-2">🚀</span>
+              Rejoindre<FaUserPlus className="ml-2" />
             </Link>
             <Link href="/contact" className="bg-white/90 text-tealBrand font-semibold px-6 py-3 rounded shadow hover:shadow-lg flex items-center">
-              Contact<span className="ml-2">✉️</span>
+              Contact<FaEnvelope className="ml-2" />
             </Link>
             <Link href="/datathonx" className="bg-orangeBrand text-white font-semibold px-6 py-3 rounded shadow hover:shadow-lg flex items-center">
-              DatathonX<span className="ml-2">⚡</span>
+              DatathonX<FaBolt className="ml-2" />
             </Link>
           </div>
         </div>
@@ -30,19 +31,19 @@ export default function Home(){
       <section className="container mx-auto py-16 px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Découvrir</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card title="Événements & Activités" link="/events" icon="🎉" />
-          <Card title="DatathonX" link="/datathonx" icon="🚀" />
-          <Card title="Projets" link="/projects" icon="💡" />
+          <Card title="Événements & Activités" link="/events" Icon={FaRegCalendarAlt} />
+          <Card title="DatathonX" link="/datathonx" Icon={FaRocket} />
+          <Card title="Projets" link="/projects" Icon={FaLightbulb} />
         </div>
       </section>
     </Layout>
   )
 }
 
-function Card({ title, link, icon }){
+function Card({ title, link, Icon }){
   return (
     <Link href={link} className="border rounded-xl shadow-md hover:shadow-xl transition block text-center p-6 bg-white/70 dark:bg-darkText/20 backdrop-blur">
-      <div className="text-4xl mb-3">{icon}</div>
+      <div className="text-4xl mb-3"><Icon /></div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-tealBrand">Explorer →</p>
     </Link>
