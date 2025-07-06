@@ -25,7 +25,7 @@ export default function Page() {
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ backgroundImage: 'url(/1.jpg)' }}
         />
-        <div className="absolute inset-0 bg-dsccGreen/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dsccGreen/70 to-dsccOrange/70" />
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-4">À propos du club</h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl">
@@ -36,10 +36,11 @@ export default function Page() {
 
       {/* Stats */}
       <AnimatedSection className="py-16 bg-white" direction="up">
-        <div className="mx-auto grid sm:grid-cols-3 gap-8 max-w-5xl px-4">
-          <Stat icon={FaProjectDiagram} count={14} label="Projets réalisés" />
-          <Stat icon={FaUsers} count={80} label="Membres actifs" />
+        <div className="mx-auto grid sm:grid-cols-4 gap-8 max-w-5xl px-4">
+          <Stat icon={FaProjectDiagram} count={14} label="Projets" />
+          <Stat icon={FaUsers} count={80} label="Membres" />
           <Stat icon={FaRegCalendarAlt} count={30} label="Événements" />
+          <Stat icon={FaRocket} count={4} label="Années" />
         </div>
       </AnimatedSection>
 
@@ -78,26 +79,34 @@ export default function Page() {
 
       {/* Mission & Vision */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4 space-y-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
-              <FaBullseye /> Notre mission
-            </h2>
-            <p className="max-w-3xl mx-auto text-lg">
-              Promouvoir l'apprentissage de la science des données et favoriser
-              une culture de partage au sein de l'ENSA. Nous croyons que la
-              collaboration permet à chacun de développer son potentiel.
-            </p>
+        <div className="container mx-auto px-4 space-y-24">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <Image src="/2.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+                <FaBullseye /> Notre mission
+              </h2>
+              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
+                Promouvoir l'apprentissage de la science des données et favoriser
+                une culture de partage au sein de l'ENSA. Nous croyons que la
+                collaboration permet à chacun de développer son potentiel.
+              </p>
+            </div>
           </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
-              <FaRocket /> Notre vision
-            </h2>
-            <p className="max-w-3xl mx-auto text-lg">
-              Démocratiser les outils de la data science et inspirer une
-              nouvelle génération d'innovateurs capable de résoudre les
-              défis de demain.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="md:order-2">
+              <Image src="/IMG-20250215-WA0007.jpg" alt="vision" width={600} height={400} className="rounded-lg shadow" />
+            </div>
+            <div className="text-center md:text-left md:order-1">
+              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+                <FaRocket /> Notre vision
+              </h2>
+              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
+                Démocratiser les outils de la data science et inspirer une
+                nouvelle génération d'innovateurs capable de résoudre les
+                défis de demain.
+              </p>
+            </div>
           </div>
         </div>
       </AnimatedSection>
@@ -114,6 +123,7 @@ export default function Page() {
             active et soudée.
           </p>
           <ImageSlider images={['/1.jpg','/2.jpg','/IMG-20250215-WA0007.jpg']} />
+          <Timeline />
         </div>
       </AnimatedSection>
 
@@ -175,6 +185,26 @@ function IconTrust({ src }) {
     <div className="p-6 bg-white shadow rounded-2xl flex items-center justify-center">
       <Image src={src} alt="logo" width={64} height={64} className="w-16 h-16 object-contain" />
     </div>
+  )
+}
+
+function Timeline() {
+  const steps = [
+    { year: '2020', text: 'Création du club par des passionnés' },
+    { year: '2021', text: 'Premiers ateliers et projets étudiants' },
+    { year: '2023', text: 'Organisation de DatathonX' }
+  ]
+  return (
+    <ol className="relative border-l-2 border-dsccGreen ml-4 my-8">
+      {steps.map((s, i) => (
+        <li key={i} className="mb-8 ml-6">
+          <span className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-dsccGreen rounded-full text-white text-xs">
+            {s.year}
+          </span>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
   )
 }
 
