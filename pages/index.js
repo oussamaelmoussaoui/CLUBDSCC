@@ -47,14 +47,14 @@ export default function Home() {
             l’innovation et la collaboration autour de la science des données.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-md transition">
-              Nos Événements
-            </Link>
-            <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition">
-              Rejoindre le Club
-            </Link>
-          </motion.div>
-        </motion.div>
+  <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-md transition">
+    Nos Événements
+  </Link>
+  <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition">
+    Rejoindre le Club
+  </Link>
+</div>
+
       </section>
       {/* Stats */}
       <AnimatedSection id="stats" className="py-16 bg-lightGray" direction="up">
