@@ -9,7 +9,8 @@ import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoo
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
-  const slides = ['/hero1.jpg','/hero2.jpg','/hero3.jpg'];
+  // Slides displayed in the hero section
+  const slides = ['/1.jpg', '/2.jpg'];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -26,15 +27,15 @@ export default function Home() {
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[index]}
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center opacity-80"
             style={{ backgroundImage: `url(${slides[index]})` }}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 0.8, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 1 }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-dsccGreen/50" />
         <motion.div
           className="relative z-10 text-center px-4"
           initial={{ opacity: 0, y: -20 }}
