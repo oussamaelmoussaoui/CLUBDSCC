@@ -5,12 +5,11 @@ import { FaEnvelope } from 'react-icons/fa'
 
 export default function Header(){
   return (
-    <header className="bg-white/80 dark:bg-darkText/80 backdrop-blur sticky top-0 z-50 shadow-md">
+    <header className="sticky top-0 z-50 shadow-md backdrop-blur">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href="/">
           <span className="flex items-center gap-2 cursor-pointer">
-            <Image src="/logo.png" alt="DSCC logo" width={40} height={40}/>
-            <span className="font-bold text-tealBrand text-xl">DSCC</span>
+            <Image src="/logo.png" alt="DSCC logo" width={40} height={40} className="bg-transparent" />
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 items-center text-sm dark:text-white">
