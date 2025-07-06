@@ -130,6 +130,19 @@ export default function Page() {
         </div>
       </AnimatedSection>
 
+      {/* Why join */}
+      <AnimatedSection className="py-20 bg-white" direction="right">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">Pourquoi nous rejoindre&nbsp;?</h2>
+          <ul className="max-w-3xl mx-auto list-disc list-inside space-y-2 text-lg">
+            <li>Développer vos compétences sur des projets concrets</li>
+            <li>Échanger avec une communauté passionnée et bienveillante</li>
+            <li>Bénéficier d'un réseau d'experts et d'entreprises partenaires</li>
+            <li>Contribuer à des initiatives innovantes à fort impact</li>
+          </ul>
+        </div>
+      </AnimatedSection>
+
       {/* Join call */}
       <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
         <h2 className="text-3xl font-bold mb-4">Envie de nous rejoindre&nbsp;?</h2>
