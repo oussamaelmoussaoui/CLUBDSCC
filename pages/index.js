@@ -20,6 +20,8 @@ import {
   FaArrowRight
 } from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
+import ProjectCard from '../components/ProjectCard'
+import { projects } from '../data/projects'
 
 export default function Home() {
   // Slides displayed in the hero section
@@ -153,9 +155,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ProjectCard icon="/icons/reco.png" title="Système de Recommandation" />
-            <ProjectCard icon="/icons/nlp.png" title="Analyse des Sentiments" />
-            <ProjectCard icon="/icons/forecast.png" title="Prédiction de Ventes" />
+            {projects.slice(0, 3).map((p, idx) => (
+              <ProjectCard key={idx} {...p} />
+            ))}
           </div>
           <div className="text-center mt-10">
             <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
@@ -255,21 +257,6 @@ function EventCard({ img, title, tag }){
   )
 }
 
-function ProjectCard({ icon, title }){
-  return (
-    <motion.div
-      className="bg-lightGray rounded-xl p-6 text-center shadow"
-      whileHover={{ scale: 1.05 }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ type: 'spring', stiffness: 300 }}
-    >
-      <Image src={icon} alt={title} width={64} height={64} className="mx-auto mb-4" />
-      <h4 className="font-semibold">{title}</h4>
-    </motion.div>
-  )
-}
 
 function TeamCard({ img, name, role }){
   return (

@@ -1,7 +1,9 @@
 import Layout from '../components/Layout'
 import AnimatedSection from '../components/AnimatedSection'
 import Link from 'next/link'
-import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaArrowRight } from 'react-icons/fa'
+import ProjectCard from '../components/ProjectCard'
+import { projects } from '../data/projects'
 import { useState, useEffect } from 'react'
 
 export default function Page(){
@@ -54,59 +56,3 @@ export default function Page(){
   )
 }
 
-function ProjectCard({ name, link, desc, ownerName, ownerLinkedIn }) {
-  return (
-    <div className="border rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col justify-between bg-white">
-      <div>
-        <h3 className="text-xl font-semibold mb-2">{name}</h3>
-        <p className="text-sm mb-6">{desc}</p>
-      </div>
-      <div className="flex items-center justify-between text-sm mt-auto">
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-dsccGreen hover:text-dsccOrange flex items-center gap-1"
-        >
-          <FaGithub />
-          <span>GitHub</span>
-        </a>
-        {ownerLinkedIn && ownerName && (
-          <a
-            href={ownerLinkedIn}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-dsccGreen hover:text-dsccOrange flex items-center gap-1"
-          >
-            <FaLinkedin />
-            <span>{ownerName}</span>
-          </a>
-        )}
-      </div>
-    </div>
-  )
-}
-
-const projects = [
-  {
-    name: 'SmartNews360',
-    link: 'https://github.com/example/smartnews360',
-    desc: 'Agrégation intelligente d’actualités.',
-    ownerName: 'A. El Idrissi',
-    ownerLinkedIn: 'https://www.linkedin.com/in/a-el-idrissi'
-  },
-  {
-    name: 'DataViz ENSA',
-    link: 'https://github.com/example/dataviz',
-    desc: 'Tableau de bord interactif.',
-    ownerName: 'B. Khadija',
-    ownerLinkedIn: 'https://www.linkedin.com/in/b-khadija'
-  },
-  {
-    name: 'IA & Santé',
-    link: 'https://github.com/example/healthai',
-    desc: 'Exploration de données médicales.',
-    ownerName: 'C. Yassine',
-    ownerLinkedIn: 'https://www.linkedin.com/in/c-yassine'
-  }
-]
