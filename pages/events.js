@@ -17,9 +17,9 @@ export default function Page(){
           <h2 className="text-2xl font-semibold mb-2">Sessions d’initiation</h2>
           <p>Des sessions courtes pour comprendre les bases de la data science et démarrer vos premiers projets.</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="masonry">
           {[1,2,3,4].map(n => (
-            <div key={n} className="h-32 bg-gray-200 rounded" />
+            <div key={n} className="masonry-item h-32 bg-gray-200 rounded" />
           ))}
         </div>
         <p className="mt-4">Replays complets disponibles sur <a href="#" className="text-tealBrand underline">Instagram</a> et <a href="#" className="text-tealBrand underline">YouTube</a>.</p>

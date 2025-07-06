@@ -15,6 +15,25 @@ body {
   100% { transform: translateX(100%); }
 }
 
-.slide-right {
-  animation: slideRight 20s linear infinite;
+  .slide-right {
+    animation: slideRight 20s linear infinite;
+  }
+
+@layer utilities {
+  .masonry {
+    column-gap: 1rem;
+  }
+  @screen sm {
+    .masonry { column-count: 2; }
+  }
+  @screen md {
+    .masonry { column-count: 3; }
+  }
+  @screen lg {
+    .masonry { column-count: 4; }
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
 }
