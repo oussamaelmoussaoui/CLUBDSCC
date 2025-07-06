@@ -7,6 +7,9 @@ export default function Dashboard() {
   const [projects, setProjects] = useState([])
   const [events, setEvents] = useState([])
   const [drives, setDrives] = useState([])
+  const [laureats, setLaureats] = useState([])
+  const [laureatName, setLaureatName] = useState('')
+  const [laureatLinkedIn, setLaureatLinkedIn] = useState('')
   const [name, setName] = useState('')
   const [link, setLink] = useState('')
   const [desc, setDesc] = useState('')
@@ -27,6 +30,8 @@ export default function Dashboard() {
       if (storedEvents) setEvents(JSON.parse(storedEvents))
       const storedDrives = localStorage.getItem('customDrives')
       if (storedDrives) setDrives(JSON.parse(storedDrives))
+      const storedLaureats = localStorage.getItem('customLaureats')
+      if (storedLaureats) setLaureats(JSON.parse(storedLaureats))
     }
   }, [router])
 
@@ -62,6 +67,16 @@ export default function Dashboard() {
     setDriveLink('')
   }
 
+  const addLaureat = (e) => {
+    e.preventDefault()
+    const newL = { name: laureatName, linkedin: laureatLinkedIn }
+    const updated = [...laureats, newL]
+    setLaureats(updated)
+    localStorage.setItem('customLaureats', JSON.stringify(updated))
+    setLaureatName('')
+    setLaureatLinkedIn('')
+  }
+
   const removeProject = (index) => {
     const updated = projects.filter((_, i) => i !== index)
     setProjects(updated)
@@ -78,6 +93,12 @@ export default function Dashboard() {
     const updated = drives.filter((_, i) => i !== index)
     setDrives(updated)
     localStorage.setItem('customDrives', JSON.stringify(updated))
+  }
+
+  const removeLaureat = (index) => {
+    const updated = laureats.filter((_, i) => i !== index)
+    setLaureats(updated)
+    localStorage.setItem('customLaureats', JSON.stringify(updated))
   }
 
   const logout = () => {
@@ -193,6 +214,35 @@ export default function Dashboard() {
             <div key={i} className="border rounded p-4 flex justify-between items-center">
               <a href={d.link} className="text-dsccGreen underline">{d.title}</a>
               <button onClick={() => removeDrive(i)} className="text-red-500 text-sm underline">Remove</button>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-semibold my-4">Ajouter un Lauréat</h2>
+        <form onSubmit={addLaureat} className="space-y-4 mb-10 max-w-md">
+          <input
+            className="border p-2 w-full rounded"
+            type="text"
+            placeholder="Nom"
+            value={laureatName}
+            onChange={(e) => setLaureatName(e.target.value)}
+            required
+          />
+          <input
+            className="border p-2 w-full rounded"
+            type="text"
+            placeholder="Lien LinkedIn"
+            value={laureatLinkedIn}
+            onChange={(e) => setLaureatLinkedIn(e.target.value)}
+            required
+          />
+          <button type="submit" className="bg-dsccGreen text-white px-4 py-2 rounded w-full">Add Laureat</button>
+        </form>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {laureats.map((l, i) => (
+            <div key={i} className="border rounded p-4 flex justify-between items-center">
+              <a href={l.linkedin} className="text-dsccGreen underline">{l.name}</a>
+              <button onClick={() => removeLaureat(i)} className="text-red-500 text-sm underline">Remove</button>
             </div>
           ))}
         </div>
