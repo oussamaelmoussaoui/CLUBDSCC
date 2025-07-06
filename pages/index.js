@@ -2,9 +2,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link';
+import Counter from '../components/Counter';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaCodeBranch } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaCodeBranch, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook } from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
@@ -55,6 +56,34 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+      {/* Stats */}
+      <AnimatedSection id="stats" className="py-16 bg-lightGray" direction="up">
+        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={14} duration={1200} /></span>
+            <p className="mt-2 text-lg">Projets réalisés</p>
+          </div>
+          <div>
+            <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={80} duration={1200} /></span>
+            <p className="mt-2 text-lg">Membres actifs</p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Trust */}
+      <AnimatedSection id="trust" className="py-20 bg-gray-50" direction="right">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
+          <div className="flex flex-wrap justify-center items-center gap-10">
+            <IconTrust icon={FaGoogle} />
+            <IconTrust icon={FaMicrosoft} />
+            <IconTrust icon={FaAmazon} />
+            <IconTrust icon={FaApple} />
+            <IconTrust icon={FaFacebook} />
+          </div>
+        </div>
+      </AnimatedSection>
+
 
       {/* About */}
       <AnimatedSection id="about" className="py-20 bg-white" direction="left">
@@ -193,6 +222,21 @@ function TeamCard({ img, name, role }){
       <Image src={img} alt={name} width={120} height={120} className="rounded-full mx-auto mb-3 object-cover" />
       <h5 className="font-semibold">{name}</h5>
       <p className="text-sm text-dsccOrange">{role}</p>
+    </motion.div>
+  )
+}
+
+
+function IconTrust({ icon: Icon }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="p-4 bg-white shadow rounded-2xl flex items-center justify-center"
+    >
+      <Icon size={48} className="text-dsccGreen" />
     </motion.div>
   )
 }
