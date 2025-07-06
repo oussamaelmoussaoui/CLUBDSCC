@@ -2,8 +2,18 @@ import Layout from '../components/Layout'
 import AnimatedSection from '../components/AnimatedSection'
 import Link from 'next/link'
 import { FaArrowRight } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
 
 export default function Page(){
+  const [customProjects, setCustomProjects] = useState([])
+
+  useEffect(() => {
+    const stored = localStorage.getItem('customProjects')
+    if (stored) setCustomProjects(JSON.parse(stored))
+  }, [])
+
+  const allProjects = [...projects, ...customProjects]
+
   return (
     <Layout title="Projets">
       {/* Hero */}
@@ -22,8 +32,8 @@ export default function Page(){
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {projects.map(p => (
-              <ProjectCard key={p.name} {...p} />
+            {allProjects.map((p, idx) => (
+              <ProjectCard key={idx} {...p} />
             ))}
           </div>
         </div>
