@@ -6,16 +6,21 @@ import { useState, useEffect } from 'react'
 
 export default function Page() {
   const [driveLinks, setDriveLinks] = useState([])
+  const [customLaureats, setCustomLaureats] = useState([])
 
   useEffect(() => {
-    const stored = localStorage.getItem('customDrives')
-    if (stored) setDriveLinks(JSON.parse(stored))
+    const storedDrives = localStorage.getItem('customDrives')
+    if (storedDrives) setDriveLinks(JSON.parse(storedDrives))
+    const storedLaureats = localStorage.getItem('customLaureats')
+    if (storedLaureats) setCustomLaureats(JSON.parse(storedLaureats))
   }, [])
 
   const defaultDrives = [
     { title: 'Drive principal', link: 'https://drive.google.com/dscc' }
   ]
+  const defaultLaureats = []
   const allDrives = [...defaultDrives, ...driveLinks]
+  const laureats = [...defaultLaureats, ...customLaureats]
   return (
     <Layout title="Ressources">
       {/* Hero */}
@@ -54,6 +59,33 @@ export default function Page() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Laureats */}
+      <AnimatedSection id="laureats" className="py-20 bg-white" direction="left">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">Nos lauréats</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {laureats.map((l, i) => (
+              <div key={i} className="text-center">
+                <img
+                  src={`https://unavatar.io/${encodeURIComponent(l.linkedin)}`}
+                  alt={l.name}
+                  className="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
+                />
+                <p className="font-semibold">{l.name}</p>
+                <a
+                  href={l.linkedin}
+                  className="text-sm text-dsccGreen underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </AnimatedSection>
