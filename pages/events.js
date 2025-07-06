@@ -29,12 +29,20 @@ export default function Page() {
   const images1 = [
     '/event/Screenshot 2025-07-06 212003.png',
     '/event/Screenshot 2025-07-06 212023.png',
-    '/event/Screenshot 2025-07-06 212041.png'
-  ]
-  const images2 = [
+    '/event/Screenshot 2025-07-06 212041.png',
     '/event/Screenshot 2025-07-06 212101.png',
     '/event/Screenshot 2025-07-06 212116.png',
-    '/event/Screenshot 2025-07-06 212130.png'
+    '/event/Screenshot 2025-07-06 212130.png',
+    '/event/Screenshot 2025-07-06 212147.png'
+  ]
+  const images2 = [
+    '/event/Screenshot 2025-07-06 212211.png',
+    '/event/Screenshot 2025-07-06 212230.png',
+    '/event/Screenshot 2025-07-06 212254.png',
+    '/event/Screenshot 2025-07-06 212342.png',
+    '/event/Screenshot 2025-07-06 212407.png',
+    '/event/Screenshot 2025-07-06 212420.png',
+    '/event/Screenshot 2025-07-06 212446.png'
   ]
   return (
     <Layout title="Événements">
