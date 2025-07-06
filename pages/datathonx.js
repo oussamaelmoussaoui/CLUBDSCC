@@ -93,7 +93,11 @@ export default function Page() {
           <div className="grid gap-6 sm:grid-cols-3">
             {winners.map((w, i) => (
               <div key={i} className="bg-lightGray p-4 rounded shadow text-center">
-                <img src={w.img} alt={`winner ${i+1}`} className="h-40 w-full object-cover rounded mb-4" />
+                <img
+                  src={w.img}
+                  alt={`winner ${i + 1}`}
+                  className="h-40 w-full object-cover object-top rounded mb-4"
+                />
                 <p className="font-semibold text-lg">{w.prize}</p>
               </div>
             ))}

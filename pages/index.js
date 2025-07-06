@@ -91,7 +91,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
           <div className="overflow-hidden">
-            <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
+            <div className="flex flex-nowrap items-center gap-10 w-max sponsor-scroll">
               {Array.from({ length: 50 }, (_, i) => {
                 const logos = [
                   '/sponsors/1631326041576.jfif',

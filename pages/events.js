@@ -26,7 +26,17 @@ export default function Page() {
     { title: 'Hackathon Data4Good', date: '10 juillet 2024', location: 'ENSA' }
   ]
   const allEvents = [...upcoming, ...customEvents]
-  const images = ['/1.jpg', '/2.jpg', '/IMG-20250215-WA0007.jpg']
+  const images = [
+    '/event/Screenshot 2025-07-06 212003.png',
+    '/event/Screenshot 2025-07-06 212023.png',
+    '/event/Screenshot 2025-07-06 212041.png',
+    '/event/Screenshot 2025-07-06 212101.png',
+    '/event/Screenshot 2025-07-06 212116.png',
+    '/event/Screenshot 2025-07-06 212130.png',
+    '/1.jpg',
+    '/2.jpg',
+    '/IMG-20250215-WA0007.jpg'
+  ]
   return (
     <Layout title="Événements">
       {/* Hero */}
