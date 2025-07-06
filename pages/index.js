@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaProjectDiagram, FaUsers } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaProjectDiagram, FaUsers, FaArrowRight } from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
@@ -47,11 +47,13 @@ export default function Home() {
             l’innovation et la collaboration autour de la science des données.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-md transition">
-              Nos Événements
+            <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-md transition inline-flex items-center gap-2">
+              <span>Nos Événements</span>
+              <FaRegCalendarAlt />
             </Link>
-            <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition">
-              Rejoindre le Club
+            <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition inline-flex items-center gap-2">
+              <span>Rejoindre le Club</span>
+              <FaUserPlus />
             </Link>
           </div>
         </motion.div>
@@ -70,9 +72,11 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
           <div className="overflow-hidden">
             <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
-              {[FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook].map((Icon, i) => (
-                <IconTrust key={i} icon={Icon} />
-              ))}
+              {Array.from({ length: 50 }, (_, i) => {
+                const logos = [FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook]
+                const Icon = logos[i % logos.length]
+                return <IconTrust key={i} icon={Icon} />
+              })}
             </div>
           </div>
         </div>
@@ -106,7 +110,10 @@ export default function Home() {
             <EventCard img="/event4.jpg" title="Initiation DataViz" tag="Atelier" />
           </div>
           <div className="text-center mt-10">
-            <Link href="/events" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les événements →</Link>
+            <Link href="/events" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+              <span>Voir tous les événements</span>
+              <FaArrowRight />
+            </Link>
           </div>
         </div>
       </AnimatedSection>
@@ -121,7 +128,10 @@ export default function Home() {
             <ProjectCard icon="/icons/forecast.png" title="Prédiction de Ventes" />
           </div>
           <div className="text-center mt-10">
-            <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les projets →</Link>
+            <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+              <span>Voir tous les projets</span>
+              <FaArrowRight />
+            </Link>
           </div>
         </div>
       </AnimatedSection>
@@ -137,7 +147,10 @@ export default function Home() {
             <TeamCard img="/team/aya.jpg" name="Aya Karim" role="Trésorière" />
           </div>
           <div className="text-center mt-10">
-            <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange">Découvrir toute l’équipe →</Link>
+            <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+              <span>Découvrir toute l’équipe</span>
+              <FaArrowRight />
+            </Link>
           </div>
         </div>
       </AnimatedSection>
@@ -206,7 +219,7 @@ function ProjectCard({ icon, title }){
 function TeamCard({ img, name, role }){
   return (
     <motion.div
-      className="text-center"
+      className="text-center shadow-md rounded-xl p-4"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
