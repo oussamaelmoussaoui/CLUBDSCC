@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import DarkModeToggle from './DarkModeToggle'
 import { FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
 
 export default function Header(){
@@ -36,7 +35,6 @@ export default function Header(){
             <span>Contact</span>
             <FaEnvelope className="ml-1" />
           </Link>
-          <DarkModeToggle />
         </nav>
       </div>
     </header>
