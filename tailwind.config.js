@@ -7,11 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        tealBrand: "#008A94",
-        orangeBrand: "#FF6600",
-        darkText: "#273340",
-      },
+      
+colors: {
+        dsccGreen: "#3C9A5B",
+        dsccOrange: "#E67700",
+        darkText: "#222222",
+        lightGray: "#F8F8F8",
+      }
+,
       fontFamily:{
         sans:['Inter', 'sans-serif']
       }
