@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Image from 'next/image';
@@ -24,7 +25,12 @@ export default function Home() {
         style={{ backgroundImage: `url(${slides[index]})` }}
       >
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center px-4">
+        <motion.div
+          className="relative z-10 text-center px-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6">L’innovation par la donnée</h1>
           <p className="max-w-xl mx-auto text-lg md:text-xl mb-8">
             Le Club Data Science de l’ENSA s’engage à promouvoir l’apprentissage,
@@ -38,7 +44,7 @@ export default function Home() {
               Rejoindre le Club
             </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* About */}
