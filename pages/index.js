@@ -68,13 +68,13 @@ export default function Home() {
       <AnimatedSection id="trust" className="py-20 bg-gray-50" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
-          <motion.div className="flex flex-nowrap items-center gap-10" animate={{ x: ["100%", "-100%"] }} transition={{ repeat: Infinity, duration: 40, ease: "linear" }}>
-            <IconTrust icon={FaGoogle} />
-            <IconTrust icon={FaMicrosoft} />
-            <IconTrust icon={FaAmazon} />
-            <IconTrust icon={FaApple} />
-            <IconTrust icon={FaFacebook} />
-          </motion.div>
+          <div className="overflow-hidden">
+            <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
+              {[FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook].map((Icon, i) => (
+                <IconTrust key={i} icon={Icon} />
+              ))}
+            </div>
+          </div>
         </div>
       </AnimatedSection>
 
@@ -228,9 +228,9 @@ function IconTrust({ icon: Icon }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="p-4 bg-white shadow rounded-2xl flex items-center justify-center"
+      className="p-6 bg-white shadow rounded-2xl flex items-center justify-center"
     >
-      <Icon size={48} className="text-dsccGreen" />
+      <Icon size={64} className="text-dsccGreen" />
     </motion.div>
   )
 }
