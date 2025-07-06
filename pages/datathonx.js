@@ -16,7 +16,8 @@ export default function Page() {
     { icon: FaRegClock, count: 48, label: 'Heures de challenge' },
     { icon: FaTrophy, count: 3, label: 'Éditions' }
   ]
-  const images = ['/1.jpg', '/2.jpg', '/IMG-20250215-WA0007.jpg']
+  const images = ["/datatthonx/Screenshot 2025-07-06 205518.png","/datatthonx/Screenshot 2025-07-06 205538.png","/datatthonx/Screenshot 2025-07-06 205607.png","/datatthonx/Screenshot 2025-07-06 205621.png","/datatthonx/Screenshot 2025-07-06 205642.png","/datatthonx/Screenshot 2025-07-06 205703.png","/datatthonx/Screenshot 2025-07-06 205734.png","/datatthonx/Screenshot 2025-07-06 205806.png","/datatthonx/Screenshot 2025-07-06 205826.png"]
+  const winners = [{img:"/datatthonx/winner.png", prize:"5000 DH"},{img:"/datatthonx/winner2.png", prize:"3000 DH"},{img:"/datatthonx/winner3.png", prize:"2000 DH"}];
   return (
     <Layout title="DatathonX">
       {/* Hero */}
@@ -42,16 +43,17 @@ export default function Page() {
 
       {/* Details */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4 space-y-8">
-          <div>
+        <div className="container mx-auto px-4 grid gap-8 md:grid-cols-3">
+          <div className="bg-white p-6 rounded shadow">
             <h2 className="text-2xl font-semibold mb-2">Domaines explorés</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li>Santé</li>
               <li>Agriculture</li>
               <li>Environnement</li>
+              <li>Planning</li>
             </ul>
           </div>
-          <div>
+          <div className="bg-white p-6 rounded shadow">
             <h2 className="text-2xl font-semibold mb-2">Planning</h2>
             <table className="table-auto text-left">
               <tbody>
@@ -66,7 +68,7 @@ export default function Page() {
               </tbody>
             </table>
           </div>
-          <div>
+          <div className="bg-white p-6 rounded shadow">
             <h2 className="text-2xl font-semibold mb-2">Livrables attendus</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li>Rapport détaillé</li>
@@ -84,7 +86,20 @@ export default function Page() {
           <ImageSlider images={images} />
         </div>
       </AnimatedSection>
-
+      {/* Winners */}
+      <AnimatedSection className="py-20 bg-white" direction="up">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Palmarès 2025</h2>
+          <div className="grid gap-6 sm:grid-cols-3">
+            {winners.map((w, i) => (
+              <div key={i} className="bg-lightGray p-4 rounded shadow text-center">
+                <img src={w.img} alt={`winner ${i+1}`} className="h-40 w-full object-cover rounded mb-4" />
+                <p className="font-semibold text-lg">{w.prize}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
       {/* Join call */}
       <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
         <h2 className="text-3xl font-bold mb-4">Participez à la prochaine édition&nbsp;!</h2>
