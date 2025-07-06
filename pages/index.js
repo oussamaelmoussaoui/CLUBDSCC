@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Counter from '../components/Counter';
 import Layout from '../components/Layout';
 import Image from 'next/image';
-import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaHandshake, FaCodeBranch, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook } from 'react-icons/fa';
+import { FaRegCalendarAlt, FaUserPlus, FaRocket, FaLightbulb, FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook } from 'react-icons/fa';
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function Home() {
