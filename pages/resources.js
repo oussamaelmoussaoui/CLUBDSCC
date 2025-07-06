@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import AnimatedSection from '../components/AnimatedSection'
 import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import { FaArrowRight, FaLinkedin } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
 export default function Page() {
@@ -67,24 +67,9 @@ export default function Page() {
       <AnimatedSection id="laureats" className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos lauréats</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {laureats.map((l, i) => (
-              <div key={i} className="text-center">
-                <img
-                  src={`https://unavatar.io/${encodeURIComponent(l.linkedin)}`}
-                  alt={l.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-2 object-cover"
-                />
-                <p className="font-semibold">{l.name}</p>
-                <a
-                  href={l.linkedin}
-                  className="text-sm text-dsccGreen underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </div>
+              <LaureatCard key={i} {...l} />
             ))}
           </div>
         </div>
@@ -100,5 +85,26 @@ export default function Page() {
         </Link>
       </AnimatedSection>
     </Layout>
+  )
+  }
+
+function LaureatCard({ name, linkedin }) {
+  return (
+    <div className="border rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col items-center bg-white text-center">
+      <img
+        src={`https://unavatar.io/${encodeURIComponent(linkedin)}`}
+        alt={name}
+        className="w-24 h-24 rounded-full mb-4 object-cover"
+      />
+      <a
+        href={linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-dsccGreen hover:text-dsccOrange flex items-center gap-1 text-sm mt-auto"
+      >
+        <FaLinkedin />
+        <span>{name}</span>
+      </a>
+    </div>
   )
 }
