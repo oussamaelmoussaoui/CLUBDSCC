@@ -78,13 +78,22 @@ export default function Page() {
               ></iframe>
             </div>
             <div className="flex gap-4">
-              <a href="https://instagram.com/clubdscc" className="text-dsccGreen underline inline-flex items-center gap-1">
+              <a
+                href="https://www.instagram.com/clubdscc/"
+                className="text-dsccGreen underline inline-flex items-center gap-1"
+              >
                 <FaInstagram /> Instagram
               </a>
-              <a href="https://linkedin.com" className="text-dsccGreen underline inline-flex items-center gap-1">
+              <a
+                href="https://ma.linkedin.com/company/club-data-science-cloud-computing"
+                className="text-dsccGreen underline inline-flex items-center gap-1"
+              >
                 <FaLinkedin /> LinkedIn
               </a>
-              <a href="https://github.com" className="text-dsccGreen underline inline-flex items-center gap-1">
+              <a
+                href="https://github.com/jawad-elkharrati/"
+                className="text-dsccGreen underline inline-flex items-center gap-1"
+              >
                 <FaGithub /> GitHub
               </a>
             </div>
