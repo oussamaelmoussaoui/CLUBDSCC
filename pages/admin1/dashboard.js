@@ -6,12 +6,15 @@ export default function Dashboard() {
   const router = useRouter()
   const [projects, setProjects] = useState([])
   const [events, setEvents] = useState([])
+  const [drives, setDrives] = useState([])
   const [name, setName] = useState('')
   const [link, setLink] = useState('')
   const [desc, setDesc] = useState('')
   const [evtTitle, setEvtTitle] = useState('')
   const [evtDate, setEvtDate] = useState('')
   const [evtLocation, setEvtLocation] = useState('')
+  const [driveTitle, setDriveTitle] = useState('')
+  const [driveLink, setDriveLink] = useState('')
 
   useEffect(() => {
     const loggedIn = typeof window !== 'undefined' && localStorage.getItem('loggedIn')
@@ -22,6 +25,8 @@ export default function Dashboard() {
       if (storedProjects) setProjects(JSON.parse(storedProjects))
       const storedEvents = localStorage.getItem('customEvents')
       if (storedEvents) setEvents(JSON.parse(storedEvents))
+      const storedDrives = localStorage.getItem('customDrives')
+      if (storedDrives) setDrives(JSON.parse(storedDrives))
     }
   }, [router])
 
@@ -47,6 +52,16 @@ export default function Dashboard() {
     setEvtLocation('')
   }
 
+  const addDrive = (e) => {
+    e.preventDefault()
+    const newDrive = { title: driveTitle, link: driveLink }
+    const updated = [...drives, newDrive]
+    setDrives(updated)
+    localStorage.setItem('customDrives', JSON.stringify(updated))
+    setDriveTitle('')
+    setDriveLink('')
+  }
+
   const removeProject = (index) => {
     const updated = projects.filter((_, i) => i !== index)
     setProjects(updated)
@@ -57,6 +72,12 @@ export default function Dashboard() {
     const updated = events.filter((_, i) => i !== index)
     setEvents(updated)
     localStorage.setItem('customEvents', JSON.stringify(updated))
+  }
+
+  const removeDrive = (index) => {
+    const updated = drives.filter((_, i) => i !== index)
+    setDrives(updated)
+    localStorage.setItem('customDrives', JSON.stringify(updated))
   }
 
   const logout = () => {
@@ -143,6 +164,35 @@ export default function Dashboard() {
               <h3 className="font-semibold">{e.title}</h3>
               <p className="text-sm mb-2">{e.date} – {e.location}</p>
               <button onClick={() => removeEvent(i)} className="text-red-500 text-sm underline">Remove</button>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-semibold my-4">Ajouter un Drive</h2>
+        <form onSubmit={addDrive} className="space-y-4 mb-10 max-w-md">
+          <input
+            className="border p-2 w-full rounded"
+            type="text"
+            placeholder="Titre du Drive"
+            value={driveTitle}
+            onChange={(e) => setDriveTitle(e.target.value)}
+            required
+          />
+          <input
+            className="border p-2 w-full rounded"
+            type="text"
+            placeholder="Lien"
+            value={driveLink}
+            onChange={(e) => setDriveLink(e.target.value)}
+            required
+          />
+          <button type="submit" className="bg-dsccGreen text-white px-4 py-2 rounded w-full">Add Drive</button>
+        </form>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {drives.map((d, i) => (
+            <div key={i} className="border rounded p-4 flex justify-between items-center">
+              <a href={d.link} className="text-dsccGreen underline">{d.title}</a>
+              <button onClick={() => removeDrive(i)} className="text-red-500 text-sm underline">Remove</button>
             </div>
           ))}
         </div>
