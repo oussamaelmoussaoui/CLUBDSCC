@@ -28,6 +28,11 @@ body {
     animation: slideLeft 40s linear infinite;
   }
 
+  /* Faster scrolling for sponsor logos */
+  .sponsor-scroll {
+    animation: slideLeft 20s linear infinite;
+  }
+
 @layer utilities {
   .masonry {
     column-gap: 1rem;

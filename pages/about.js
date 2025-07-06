@@ -62,7 +62,7 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
           <div className="overflow-hidden">
-            <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
+            <div className="flex flex-nowrap items-center gap-10 w-max sponsor-scroll">
               {Array.from({ length: 20 }, (_, i) => {
                 const logos = [
                   '/sponsors/1631326041576.jfif',
@@ -89,7 +89,7 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
         <div className="container mx-auto px-4 space-y-24">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <Image src="/2.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
+            <Image src="/1.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
             <div className="text-center md:text-left">
               <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
                 <FaBullseye /> Notre mission
@@ -130,7 +130,19 @@ export default function Page() {
             projets et des événements pour devenir aujourd'hui une communauté
             active et soudée.
           </p>
-          <ImageSlider images={['/1.jpg','/2.jpg','/IMG-20250215-WA0007.jpg']} />
+          <ImageSlider
+            images={[
+              '/event/Screenshot 2025-07-06 212003.png',
+              '/event/Screenshot 2025-07-06 212023.png',
+              '/event/Screenshot 2025-07-06 212041.png',
+              '/event/Screenshot 2025-07-06 212101.png',
+              '/event/Screenshot 2025-07-06 212116.png',
+              '/event/Screenshot 2025-07-06 212130.png',
+              '/1.jpg',
+              '/2.jpg',
+              '/IMG-20250215-WA0007.jpg'
+            ]}
+          />
           <Timeline />
         </div>
       </AnimatedSection>
