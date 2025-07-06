@@ -11,10 +11,6 @@ import {
   FaRocket,
   FaLightbulb,
   FaHandshake,
-  FaGoogle,
-  FaMicrosoft,
-  FaAmazon,
-  FaApple,
   FaFacebook,
   FaInstagram,
   FaLinkedin,
@@ -97,9 +93,21 @@ export default function Home() {
           <div className="overflow-hidden">
             <div className="flex flex-nowrap items-center gap-10 w-max slide-left">
               {Array.from({ length: 50 }, (_, i) => {
-                const logos = [FaGoogle, FaMicrosoft, FaAmazon, FaApple, FaFacebook]
-                const Icon = logos[i % logos.length]
-                return <IconTrust key={i} icon={Icon} />
+                const logos = [
+                  '/sponsors/1631326041576.jfif',
+                  '/sponsors/49-1120_company_import.jpg',
+                  '/sponsors/Assabah-logo.jpg',
+                  '/sponsors/COMMUNE-OUJDA-LOGO-01.png',
+                  '/sponsors/Cerhso.jpg',
+                  '/sponsors/ENSA Oujda.png',
+                  '/sponsors/Screenshot 2025-07-06 204840.png',
+                  '/sponsors/Societe-Generale-Emploi-Recrutement.png',
+                  '/sponsors/images (1).jfif',
+                  '/sponsors/images.png',
+                  '/sponsors/unnamed.png'
+                ]
+                const src = logos[i % logos.length]
+                return <IconTrust key={i} src={src} />
               })}
             </div>
           </div>
@@ -275,7 +283,7 @@ function TeamCard({ img, name, role }){
 }
 
 
-function IconTrust({ icon: Icon }) {
+function IconTrust({ src }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -284,7 +292,7 @@ function IconTrust({ icon: Icon }) {
       transition={{ duration: 0.5 }}
       className="p-6 bg-white shadow rounded-2xl flex items-center justify-center"
     >
-      <Icon size={64} className="text-dsccGreen" />
+      <Image src={src} alt="logo" width={64} height={64} className="w-16 h-16 object-contain" />
     </motion.div>
   )
 }
