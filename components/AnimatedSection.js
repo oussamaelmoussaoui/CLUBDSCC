@@ -23,9 +23,10 @@ export default function AnimatedSection({
   }
 
   const variants = {
-    hidden: { opacity: 0, ...computeOffset(direction) },
+    hidden: { opacity: 0, scale: 0.9, ...computeOffset(direction) },
     visible: {
       opacity: 1,
+      scale: 1,
       x: 0,
       y: 0,
       transition: { staggerChildren: stagger, delayChildren: delay }
@@ -37,7 +38,7 @@ export default function AnimatedSection({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.8, delay }}
       variants={variants}
       {...props}
