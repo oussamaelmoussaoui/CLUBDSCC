@@ -13,8 +13,7 @@ export default function Header(){
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 items-center text-sm dark:text-white">
-          <Link href="/about" className="hover:text-tealBrand transition">À propos</Link>
-          <Link href="/events" className="hover:text-tealBrand transition">Événements</Link>
+          <Link href="/overview" className="hover:text-tealBrand transition">Club</Link>
           <Link href="/projects" className="hover:text-tealBrand transition">Projets</Link>
           <Link href="/datathonx" className="hover:text-tealBrand transition">DatathonX</Link>
           <Link href="/team" className="hover:text-tealBrand transition">Équipe</Link>
