@@ -1,6 +1,5 @@
 import Layout from '../components/Layout'
 import Link from 'next/link'
-import Image from 'next/image'
 import { FaRegCalendarAlt, FaUserPlus, FaEnvelope, FaBolt, FaRocket, FaLightbulb } from 'react-icons/fa'
 
 export default function Home(){
@@ -8,7 +7,14 @@ export default function Home(){
     <Layout title="Accueil">
       <section className="bg-gradient-to-br from-tealBrand to-orangeBrand text-white py-24 shadow-inner">
         <div className="container mx-auto px-4 text-center flex flex-col items-center">
-          <Image src="/logo.png" alt="DSCC" width={120} height={120} className="animate-bounce mb-6 drop-shadow-lg" />
+          {/* Sliding images replace the old logo */}
+          <div className="overflow-hidden w-full mb-6">
+            <div className="flex gap-6 slide-right">
+              <img src="/img-teal.svg" alt="teal" className="w-24 h-24 rounded-lg shadow" />
+              <img src="/img-orange.svg" alt="orange" className="w-24 h-24 rounded-lg shadow" />
+              <img src="/img-dark.svg" alt="dark" className="w-24 h-24 rounded-lg shadow" />
+            </div>
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">L’innovation par la donnée</h1>
           <p className="mb-8 text-lg max-w-2xl">Bienvenue au Data Science Club de l’ENSA. Nous explorons l’IA et la data pour créer des projets à impact.</p>
           <div className="flex flex-wrap justify-center gap-4">

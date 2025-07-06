@@ -9,3 +9,12 @@ html {
 body {
   @apply font-sans text-darkText bg-white dark:bg-darkText dark:text-white;
 }
+
+@keyframes slideRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(100%); }
+}
+
+.slide-right {
+  animation: slideRight 20s linear infinite;
+}
