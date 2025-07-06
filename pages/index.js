@@ -59,7 +59,11 @@ export default function Home() {
         </motion.div>
       </section>
       {/* Stats */}
-      <AnimatedSection id="stats" className="py-16 bg-lightGray" direction="up">
+      <AnimatedSection
+        id="stats"
+        className="relative -mt-20 mb-16 px-4 z-20"
+        direction="up"
+      >
         <div className="mx-auto grid sm:grid-cols-2 gap-8 max-w-5xl bg-white shadow-2xl rounded-2xl px-8 py-12">
           <Stat icon={FaProjectDiagram} count={14} label="Projets réalisés" />
           <Stat icon={FaUsers} count={80} label="Membres actifs" />
