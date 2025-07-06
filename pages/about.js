@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   return (
     <Layout title="À propos">
-      <section className="container mx-auto py-16 px-4 space-y-10">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-10">
         <h1 className="text-3xl font-bold mb-6">À propos de nous</h1>
         <div>
           <h2 className="text-2xl font-semibold mb-2">Historique</h2>
@@ -37,7 +38,7 @@ export default function Page(){
             </div>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }

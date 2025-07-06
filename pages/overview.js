@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import ImageSlider from '../components/ImageSlider'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   const images = [
@@ -10,7 +11,7 @@ export default function Page(){
 
   return (
     <Layout title="Le Club">
-      <section className="container mx-auto py-16 px-4 space-y-12">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-12">
         <h1 className="text-3xl font-bold">Data Science Club ENSA</h1>
         <ImageSlider images={images} />
 
@@ -31,7 +32,7 @@ export default function Page(){
           <p className="mb-2">Nous invitons régulièrement des doctorants et professionnels pour échanger en direct.</p>
           <p>Des sessions courtes pour comprendre les bases de la data science et démarrer vos premiers projets.</p>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }

@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   return (
     <Layout title="Projets">
-      <section className="container mx-auto py-16 px-4">
+      <AnimatedSection className="container mx-auto py-16 px-4">
         <h1 className="text-3xl font-bold mb-8">Projets du Club</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map(p => (
@@ -14,7 +15,7 @@ export default function Page(){
             </a>
           ))}
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }

@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import AnimatedSection from '../components/AnimatedSection'
 
 export default function Page(){
   return (
     <Layout title="Notre Équipe">
-      <section className="container mx-auto py-16 px-4 space-y-8">
+      <AnimatedSection className="container mx-auto py-16 px-4 space-y-8">
         <h1 className="text-3xl font-bold mb-6">Notre Équipe</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {members.map(m => (
@@ -21,7 +22,7 @@ export default function Page(){
           <h2 className="text-2xl font-semibold mb-4">Alumni & Ambassadeurs</h2>
           <p>Nos anciens membres continuent de partager leur expertise et de soutenir le club.</p>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }
