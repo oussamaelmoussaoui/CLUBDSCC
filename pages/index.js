@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import AnimatedSection from '../components/AnimatedSection';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Image from 'next/image';
@@ -20,7 +21,8 @@ export default function Home() {
   return (
     <Layout title="Accueil">
       {/* Hero */}
-      <section
+      <AnimatedSection
+        as="section"
         className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white transition-all duration-1000"
         style={{ backgroundImage: `url(${slides[index]})` }}
       >
@@ -45,10 +47,10 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
-      </section>
+      </AnimatedSection>
 
       {/* About */}
-      <section id="about" className="py-20 bg-white">
+      <AnimatedSection as="section" id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">À propos du club</h2>
           <p className="max-w-3xl mx-auto text-lg mb-10">
@@ -61,10 +63,10 @@ export default function Home() {
             <Objective icon={FaHandshake} title="Collaboration"/>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Events Preview */}
-      <section id="events" className="py-20 bg-lightGray">
+      <AnimatedSection as="section" id="events" className="py-20 bg-lightGray">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos Événements</h2>
           <div className="masonry">
@@ -77,10 +79,10 @@ export default function Home() {
             <Link href="/events" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les événements →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Projects Preview */}
-      <section id="projects" className="py-20 bg-white">
+      <AnimatedSection as="section" id="projects" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -92,10 +94,10 @@ export default function Home() {
             <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange">Voir tous les projets →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Team Preview */}
-      <section id="team" className="py-20 bg-lightGray">
+      <AnimatedSection as="section" id="team" className="py-20 bg-lightGray">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
           <div className="flex flex-wrap justify-center gap-10">
@@ -108,10 +110,10 @@ export default function Home() {
             <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange">Découvrir toute l’équipe →</Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Contact */}
-      <section id="contact" className="py-20 bg-dsccGreen text-white">
+      <AnimatedSection as="section" id="contact" className="py-20 bg-dsccGreen text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Contact</h2>
           <p className="mb-8">Une question ? Un projet ? Envoyez‑nous un message !</p>
@@ -122,7 +124,7 @@ export default function Home() {
             <button className="bg-dsccOrange hover:bg-white hover:text-dsccOrange font-semibold py-3 rounded-md transition">Envoyer</button>
           </form>
         </div>
-      </section>
+      </AnimatedSection>
     </Layout>
   )
 }
