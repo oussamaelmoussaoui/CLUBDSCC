@@ -19,7 +19,6 @@ export default function Header(){
           <Link href="/datathonx" className="hover:text-dsccGreen transition">DatathonX</Link>
           <Link href="/team" className="hover:text-dsccGreen transition">Équipe</Link>
           <Link href="/resources" className="hover:text-dsccGreen transition">Ressources</Link>
-          <Link href="/admin1" className="hover:text-dsccGreen transition">Admin</Link>
           <Link href="/contact" className="flex items-center bg-dsccOrange text-white px-4 py-2 rounded hover:opacity-90 transition">
             <span>Contact</span>
             <FaEnvelope className="ml-1" />
