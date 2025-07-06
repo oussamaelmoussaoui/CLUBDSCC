@@ -53,12 +53,12 @@ export default function Home() {
             <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition">
               Rejoindre le Club
             </Link>
-          </div>
+          </motion.div>
         </motion.div>
       </section>
       {/* Stats */}
       <AnimatedSection id="stats" className="py-16 bg-lightGray" direction="up">
-        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="mx-auto flex flex-col sm:flex-row justify-around items-center max-w-5xl bg-white shadow-2xl rounded-2xl px-8 py-8">
           <div>
             <span className="text-4xl font-extrabold text-dsccGreen"><Counter to={14} duration={1200} /></span>
             <p className="mt-2 text-lg">Projets réalisés</p>
@@ -74,7 +74,7 @@ export default function Home() {
       <AnimatedSection id="trust" className="py-20 bg-gray-50" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
-          <div className="flex flex-wrap justify-center items-center gap-10">
+          <motion.div className="flex flex-nowrap items-center gap-10" animate={{ x: ["100%", "-100%"] }} transition={{ repeat: Infinity, duration: 40, ease: "linear" }}>
             <IconTrust icon={FaGoogle} />
             <IconTrust icon={FaMicrosoft} />
             <IconTrust icon={FaAmazon} />
