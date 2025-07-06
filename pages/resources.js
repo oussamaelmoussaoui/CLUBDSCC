@@ -91,19 +91,14 @@ export default function Page() {
 function LaureatCard({ name, linkedin }) {
   return (
     <div className="border rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col items-center bg-white text-center">
-      <img
-        src={`https://unavatar.io/${encodeURIComponent(linkedin)}`}
-        alt={name}
-        className="w-24 h-24 rounded-full mb-4 object-cover"
-      />
+      <p className="font-semibold mb-4">{name}</p>
       <a
         href={linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-dsccGreen hover:text-dsccOrange flex items-center gap-1 text-sm mt-auto"
+        className="text-dsccGreen hover:text-dsccOrange text-3xl mt-auto"
       >
         <FaLinkedin />
-        <span>{name}</span>
       </a>
     </div>
   )
