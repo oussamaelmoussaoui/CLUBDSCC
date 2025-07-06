@@ -15,8 +15,6 @@ import {
   FaInstagram,
   FaLinkedin,
   FaGithub,
-  FaTwitter,
-  FaYoutube,
   FaProjectDiagram,
   FaUsers,
   FaArrowRight
@@ -192,12 +190,22 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-8">Réseaux sociaux</h2>
           <div className="flex justify-center flex-wrap gap-6">
-            <SocialIcon href="https://instagram.com/clubdscc" icon={FaInstagram} />
-            <SocialIcon href="https://linkedin.com/company/clubdscc" icon={FaLinkedin} />
-            <SocialIcon href="https://github.com/clubdscc" icon={FaGithub} />
-            <SocialIcon href="https://facebook.com/clubdscc" icon={FaFacebook} />
-            <SocialIcon href="https://twitter.com/clubdscc" icon={FaTwitter} />
-            <SocialIcon href="https://youtube.com/clubdscc" icon={FaYoutube} />
+            <SocialIcon
+              href="https://www.instagram.com/clubdscc/"
+              icon={FaInstagram}
+            />
+            <SocialIcon
+              href="https://ma.linkedin.com/company/club-data-science-cloud-computing"
+              icon={FaLinkedin}
+            />
+            <SocialIcon
+              href="https://github.com/jawad-elkharrati/"
+              icon={FaGithub}
+            />
+            <SocialIcon
+              href="https://www.facebook.com/clubdscc/"
+              icon={FaFacebook}
+            />
           </div>
         </div>
       </AnimatedSection>
