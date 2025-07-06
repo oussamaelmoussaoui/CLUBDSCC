@@ -13,7 +13,8 @@ import {
   FaHandshake,
   FaBullseye,
   FaHistory,
-  FaArrowRight
+  FaArrowRight,
+  FaCheckCircle
 } from 'react-icons/fa'
 
 export default function Page() {
@@ -131,11 +132,23 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-lightGray" direction="up">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Ce que nous faisons</h2>
-          <ul className="max-w-3xl mx-auto list-disc list-inside space-y-2 text-lg">
-            <li>Organisation d'ateliers techniques et de formations</li>
-            <li>Conférences avec des experts du domaine</li>
-            <li>Participation à des compétitions et datathons</li>
-            <li>Accompagnement de projets étudiants innovants</li>
+          <ul className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4 text-lg">
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Organisation d'ateliers techniques et de formations</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Conférences avec des experts du domaine</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Participation à des compétitions et datathons</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Accompagnement de projets étudiants innovants</span>
+            </li>
           </ul>
         </div>
       </AnimatedSection>
@@ -144,11 +157,23 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-white" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Pourquoi nous rejoindre&nbsp;?</h2>
-          <ul className="max-w-3xl mx-auto list-disc list-inside space-y-2 text-lg">
-            <li>Développer vos compétences sur des projets concrets</li>
-            <li>Échanger avec une communauté passionnée et bienveillante</li>
-            <li>Bénéficier d'un réseau d'experts et d'entreprises partenaires</li>
-            <li>Contribuer à des initiatives innovantes à fort impact</li>
+          <ul className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4 text-lg">
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Développer vos compétences sur des projets concrets</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Échanger avec une communauté passionnée et bienveillante</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Bénéficier d'un réseau d'experts et d'entreprises partenaires</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheckCircle className="text-dsccOrange mt-1" />
+              <span>Contribuer à des initiatives innovantes à fort impact</span>
+            </li>
           </ul>
         </div>
       </AnimatedSection>
@@ -190,9 +215,9 @@ function IconTrust({ src }) {
 
 function Timeline() {
   const steps = [
-    { year: '2020', text: 'Création du club par des passionnés' },
-    { year: '2021', text: 'Premiers ateliers et projets étudiants' },
-    { year: '2023', text: 'Organisation de DatathonX' }
+    { year: '2020', text: 'Création du club par des passionnés', Icon: FaLightbulb },
+    { year: '2021', text: 'Premiers ateliers et projets étudiants', Icon: FaProjectDiagram },
+    { year: '2023', text: 'Organisation de DatathonX', Icon: FaRocket }
   ]
   return (
     <ol className="relative border-l-2 border-dsccGreen ml-4 my-8">
@@ -201,7 +226,10 @@ function Timeline() {
           <span className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-dsccGreen rounded-full text-white text-xs">
             {s.year}
           </span>
-          <p>{s.text}</p>
+          <div className="flex items-center gap-2 mt-1">
+            <s.Icon className="text-dsccOrange" />
+            <p>{s.text}</p>
+          </div>
         </li>
       ))}
     </ol>
