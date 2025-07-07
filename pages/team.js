@@ -30,12 +30,12 @@ export default function Page() {
         </div>
       </AnimatedSection>
 
-      {/* Members */}
+      {/* Pilotage team */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Bureau actuel</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Équipe Pilotage</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {members.map(m => (
+            {pilotageTeam.map(m => (
               <div key={m.name} className="text-center">
                 <div className="h-32 w-32 mx-auto rounded-full bg-gray-200 mb-2 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white transition">
@@ -50,12 +50,12 @@ export default function Page() {
         </div>
       </AnimatedSection>
 
-      {/* HR team */}
+      {/* Responsables team */}
       <AnimatedSection className="py-20 bg-white" direction="right">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Équipe RH</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Équipe Responsables</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {hrTeam.map(m => (
+            {responsableTeam.map(m => (
               <div key={m.name} className="text-center">
                 <div className="h-32 w-32 mx-auto rounded-full bg-gray-200 mb-2 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white transition">
@@ -97,13 +97,21 @@ function Stat({ icon: Icon, count, label }) {
   )
 }
 
-const members = [
-  {name:'A. El Idrissi', role:'Président', quote:'Toujours innover'},
-  {name:'B. Khadija', role:'VP', quote:'Partage et entraide'},
-  {name:'C. Yassine', role:'Trésorier', quote:'Rigueur et passion'},
-  {name:'D. Salma', role:'Secrétaire', quote:'Organisation au top'},
+const pilotageTeam = [
+  { name: 'Jawad Elkharrati', role: 'Président', quote: '' },
+  { name: 'Aya El Farssia', role: 'Vice-Présidente', quote: '' },
+  { name: 'Hanae Cherif', role: 'Secrétaire', quote: '' },
+  { name: 'Oumaima Sahli', role: 'Trésorière', quote: '' },
+  { name: 'Iyad Beddidi', role: 'Responsable RH', quote: '' },
 ]
 
-const hrTeam = [
-  {name:'Iyad Beddidi', role:'Responsable RH', quote:'À votre écoute'},
+const responsableTeam = [
+  { name: 'Mohamed El Wazani', role: 'Responsable Design', quote: '' },
+  { name: 'Houciene Benhaddou', role: 'Responsable Maison de Science', quote: '' },
+  { name: 'Safae Azizi', role: 'Responsable Média', quote: '' },
+  { name: 'Jinan', role: 'Responsable Montage', quote: '' },
+  { name: 'Mostafa Alaoui', role: 'Responsable Logistique', quote: '' },
+  { name: 'Amine Chakri', role: 'Responsable Compétition', quote: '' },
+  { name: 'Oussama Moussawi', role: 'Responsable Journée', quote: '' },
+  { name: 'Badreddine Chihab', role: 'Responsable Sponsoring', quote: '' },
 ]
