@@ -42,6 +42,9 @@ export default function Dashboard() {
           const projSnap = await getDocs(collection(db, 'projects'))
           const firebaseProjects = projSnap.docs.map(d => ({ id: d.id, ...d.data() }))
           setProjects(prev => [...prev, ...firebaseProjects])
+          const evtSnap = await getDocs(collection(db, 'events'))
+          const firebaseEvents = evtSnap.docs.map(d => ({ id: d.id, ...d.data() }))
+          setEvents(prev => [...prev, ...firebaseEvents])
         } catch (err) {
           // ignore if firestore unavailable
         }
@@ -69,9 +72,16 @@ export default function Dashboard() {
     setProjectLinkedIn('')
   }
 
-  const addEvent = (e) => {
+  const addEvent = async (e) => {
     e.preventDefault()
     const newEvt = { title: evtTitle, date: evtDate, location: evtLocation }
+    try {
+      const { collection, addDoc } = await import('firebase/firestore')
+      const docRef = await addDoc(collection(db, 'events'), newEvt)
+      newEvt.id = docRef.id
+    } catch (err) {
+      // ignore firestore errors in offline mode
+    }
     const updated = [...events, newEvt]
     setEvents(updated)
     localStorage.setItem('customEvents', JSON.stringify(updated))
@@ -121,7 +131,16 @@ export default function Dashboard() {
     localStorage.setItem('customProjects', JSON.stringify(updated))
   }
 
-  const removeEvent = (index) => {
+  const removeEvent = async (index) => {
+    const evt = events[index]
+    if (evt && evt.id) {
+      try {
+        const { doc, deleteDoc } = await import('firebase/firestore')
+        await deleteDoc(doc(db, 'events', evt.id))
+      } catch (err) {
+        // ignore firestore errors
+      }
+    }
     const updated = events.filter((_, i) => i !== index)
     setEvents(updated)
     localStorage.setItem('customEvents', JSON.stringify(updated))
