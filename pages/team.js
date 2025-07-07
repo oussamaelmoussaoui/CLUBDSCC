@@ -6,7 +6,7 @@ import { FaUsers, FaRegCalendarAlt, FaArrowRight } from 'react-icons/fa'
 
 export default function Page() {
   const stats = [
-    { icon: FaUsers, count: 20, label: 'Membres actifs' },
+    { icon: FaUsers, count: 80, label: 'Membres actifs' },
     { icon: FaRegCalendarAlt, count: 4, label: 'Années' }
   ]
   return (
@@ -35,11 +35,12 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe Pilotage</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {pilotageTeam.map(m => (
+            {pilotageTeam.map((m, idx) => (
               <div key={m.name} className="text-center">
                 <div className="h-32 w-32 mx-auto rounded-full bg-gray-200 mb-2 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white transition">
-                    {m.quote}
+                  <img src={`/team/${idx + 1}.jpg`} alt={m.name} className="object-cover w-full h-full" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white p-2 text-sm transition text-center">
+                    {quotesByRole[m.role]}
                   </div>
                 </div>
                 <p className="font-semibold">{m.name}</p>
@@ -55,11 +56,12 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe Responsables</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {responsableTeam.map(m => (
+            {responsableTeam.map((m, idx) => (
               <div key={m.name} className="text-center">
                 <div className="h-32 w-32 mx-auto rounded-full bg-gray-200 mb-2 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white transition">
-                    {m.quote}
+                  <img src={`/team/${pilotageTeam.length + idx + 1}.jpg`} alt={m.name} className="object-cover w-full h-full" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-80 bg-dsccGreen text-white p-2 text-sm transition text-center">
+                    {quotesByRole[m.role]}
                   </div>
                 </div>
                 <p className="font-semibold">{m.name}</p>
@@ -97,21 +99,37 @@ function Stat({ icon: Icon, count, label }) {
   )
 }
 
+const quotesByRole = {
+  'Président': 'Diriger pour innover.',
+  'Vice-Présidente': "Toujours à l'écoute.",
+  'Secrétaire': 'Organiser pour avancer.',
+  'Trésorière': 'Gérer pour prospérer.',
+  'Responsable RH': 'Valoriser notre équipe.',
+  'Responsable Design': "L'esthétique avant tout.",
+  'Responsable Maison de Science': 'Cultiver la connaissance.',
+  'Responsable Média': 'Partager notre passion.',
+  'Responsable Montage': 'Donner vie aux images.',
+  'Responsable Logistique': 'Tout est dans les détails.',
+  'Responsable Compétition': 'Toujours prêt pour le défi.',
+  'Responsable Journée': 'Créer des souvenirs.',
+  'Responsable Sponsoring': 'Trouver nos alliés.'
+}
+
 const pilotageTeam = [
-  { name: 'Jawad Elkharrati', role: 'Président', quote: '' },
-  { name: 'Aya El Farssia', role: 'Vice-Présidente', quote: '' },
-  { name: 'Hanae Cherif', role: 'Secrétaire', quote: '' },
-  { name: 'Oumaima Sahli', role: 'Trésorière', quote: '' },
-  { name: 'Iyad Beddidi', role: 'Responsable RH', quote: '' },
+  { name: 'Jawad Elkharrati', role: 'Président' },
+  { name: 'Aya El Farssia', role: 'Vice-Présidente' },
+  { name: 'Hanae Cherif', role: 'Secrétaire' },
+  { name: 'Oumaima Sahli', role: 'Trésorière' },
+  { name: 'Iyad Beddidi', role: 'Responsable RH' },
 ]
 
 const responsableTeam = [
-  { name: 'Mohamed El Wazani', role: 'Responsable Design', quote: '' },
-  { name: 'Houciene Benhaddou', role: 'Responsable Maison de Science', quote: '' },
-  { name: 'Safae Azizi', role: 'Responsable Média', quote: '' },
-  { name: 'Jinan', role: 'Responsable Montage', quote: '' },
-  { name: 'Mostafa Alaoui', role: 'Responsable Logistique', quote: '' },
-  { name: 'Amine Chakri', role: 'Responsable Compétition', quote: '' },
-  { name: 'Oussama Moussawi', role: 'Responsable Journée', quote: '' },
-  { name: 'Badreddine Chihab', role: 'Responsable Sponsoring', quote: '' },
+  { name: 'Mohamed El Wazani', role: 'Responsable Design' },
+  { name: 'Houciene Benhaddou', role: 'Responsable Maison de Science' },
+  { name: 'Safae Azizi', role: 'Responsable Média' },
+  { name: 'Jinan', role: 'Responsable Montage' },
+  { name: 'Mostafa Alaoui', role: 'Responsable Logistique' },
+  { name: 'Amine Chakri', role: 'Responsable Compétition' },
+  { name: 'Oussama Moussawi', role: 'Responsable Journée' },
+  { name: 'Badreddine Chihab', role: 'Responsable Sponsoring' },
 ]
