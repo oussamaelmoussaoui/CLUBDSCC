@@ -4,6 +4,7 @@ import Counter from '../components/Counter'
 import ImageSlider from '../components/ImageSlider'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { db } from '../lib/firebase'
 import {
   FaRegCalendarAlt,
   FaUsers,
@@ -18,6 +19,17 @@ export default function Page() {
   useEffect(() => {
     const stored = localStorage.getItem('customEvents')
     if (stored) setCustomEvents(JSON.parse(stored))
+    const fetchEvents = async () => {
+      try {
+        const { getDocs, collection } = await import('firebase/firestore')
+        const snap = await getDocs(collection(db, 'events'))
+        const firebaseEvents = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+        setCustomEvents(prev => [...prev, ...firebaseEvents])
+      } catch (err) {
+        // ignore if firestore unavailable
+      }
+    }
+    fetchEvents()
   }, [])
 
   const upcoming = [
