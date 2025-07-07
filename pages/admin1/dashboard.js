@@ -29,12 +29,10 @@ export default function Dashboard() {
       if (storedProjects) setProjects(JSON.parse(storedProjects))
       const storedEvents = localStorage.getItem('customEvents')
       if (storedEvents) setEvents(JSON.parse(storedEvents))
-      const storedDrives = localStorage.getItem('customDrives')
-      if (storedDrives) setDrives(JSON.parse(storedDrives))
-      const storedLaureats = localStorage.getItem('customLaureats')
-      if (storedLaureats) setLaureats(JSON.parse(storedLaureats))
       const storedMessages = localStorage.getItem('contactMessages')
       if (storedMessages) setMessages(JSON.parse(storedMessages))
+      fetch('/api/drives').then(res => res.json()).then(setDrives).catch(() => {})
+      fetch('/api/laureats').then(res => res.json()).then(setLaureats).catch(() => {})
     }
   }, [router])
 
@@ -60,22 +58,28 @@ export default function Dashboard() {
     setEvtLocation('')
   }
 
-  const addDrive = (e) => {
+  const addDrive = async (e) => {
     e.preventDefault()
     const newDrive = { title: driveTitle, link: driveLink }
-    const updated = [...drives, newDrive]
-    setDrives(updated)
-    localStorage.setItem('customDrives', JSON.stringify(updated))
+    const res = await fetch('/api/drives', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newDrive)
+    })
+    if (res.ok) setDrives([...drives, newDrive])
     setDriveTitle('')
     setDriveLink('')
   }
 
-  const addLaureat = (e) => {
+  const addLaureat = async (e) => {
     e.preventDefault()
     const newL = { name: laureatName, linkedin: laureatLinkedIn }
-    const updated = [...laureats, newL]
-    setLaureats(updated)
-    localStorage.setItem('customLaureats', JSON.stringify(updated))
+    const res = await fetch('/api/laureats', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newL)
+    })
+    if (res.ok) setLaureats([...laureats, newL])
     setLaureatName('')
     setLaureatLinkedIn('')
   }
@@ -92,16 +96,22 @@ export default function Dashboard() {
     localStorage.setItem('customEvents', JSON.stringify(updated))
   }
 
-  const removeDrive = (index) => {
-    const updated = drives.filter((_, i) => i !== index)
-    setDrives(updated)
-    localStorage.setItem('customDrives', JSON.stringify(updated))
+  const removeDrive = async (index) => {
+    await fetch('/api/drives', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ index })
+    })
+    setDrives(drives.filter((_, i) => i !== index))
   }
 
-  const removeLaureat = (index) => {
-    const updated = laureats.filter((_, i) => i !== index)
-    setLaureats(updated)
-    localStorage.setItem('customLaureats', JSON.stringify(updated))
+  const removeLaureat = async (index) => {
+    await fetch('/api/laureats', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ index })
+    })
+    setLaureats(laureats.filter((_, i) => i !== index))
   }
 
   const removeMessage = (index) => {

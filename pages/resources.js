@@ -5,22 +5,19 @@ import { FaArrowRight, FaLinkedin } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 
 export default function Page() {
-  const [driveLinks, setDriveLinks] = useState([])
-  const [customLaureats, setCustomLaureats] = useState([])
+  const [drives, setDrives] = useState([])
+  const [laureats, setLaureats] = useState([])
 
   useEffect(() => {
-    const storedDrives = localStorage.getItem('customDrives')
-    if (storedDrives) setDriveLinks(JSON.parse(storedDrives))
-    const storedLaureats = localStorage.getItem('customLaureats')
-    if (storedLaureats) setCustomLaureats(JSON.parse(storedLaureats))
+    fetch('/api/drives')
+      .then((res) => res.json())
+      .then((data) => setDrives(data))
+      .catch(() => {})
+    fetch('/api/laureats')
+      .then((res) => res.json())
+      .then((data) => setLaureats(data))
+      .catch(() => {})
   }, [])
-
-  const defaultDrives = [
-    { title: 'Drive principal', link: 'https://drive.google.com/dscc' }
-  ]
-  const defaultLaureats = []
-  const allDrives = [...defaultDrives, ...driveLinks]
-  const laureats = [...defaultLaureats, ...customLaureats]
   return (
     <Layout title="Ressources">
       {/* Hero */}
@@ -49,7 +46,7 @@ export default function Page() {
               <h2 className="text-3xl font-bold mb-4">Accès aux Drives du Club</h2>
               <p className="mb-6">Retrouvez toutes nos ressources partagées sur Google Drive.</p>
               <ul className="space-y-2">
-                {allDrives.map((d, i) => (
+                {drives.map((d, i) => (
                   <li key={i}>
                     <a href={d.link} className="text-dsccGreen underline inline-flex items-center gap-2">
                       <span>{d.title}</span>
