@@ -8,6 +8,7 @@ Ce projet contient un squelette complet pour le site officiel du **Data Science 
 - Pages prêtes à l’emploi : Home, À propos, Événements, Projets, DatathonX, Équipe, Ressources, Contact
 - Layout, Header, Footer déjà stylés
 - Script `npm run dev` pour lancer le serveur local
+- Intégration optionnelle de **Firebase** pour stocker projets et messages
 
 ## Installation rapide
 
