@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { db } from '../../lib/firebase'
-import { collection, addDoc } from 'firebase/firestore'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -55,6 +54,7 @@ export default function Dashboard() {
     e.preventDefault()
     const newProj = { name, link, desc, ownerLinkedIn: projectLinkedIn }
     try {
+      const { collection, addDoc } = await import('firebase/firestore')
       const docRef = await addDoc(collection(db, 'projects'), newProj)
       newProj.id = docRef.id
     } catch (err) {
