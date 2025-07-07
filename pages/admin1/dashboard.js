@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
+import { db } from '../../lib/firebase'
+import { collection, addDoc } from 'firebase/firestore'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -14,6 +16,7 @@ export default function Dashboard() {
   const [name, setName] = useState('')
   const [link, setLink] = useState('')
   const [desc, setDesc] = useState('')
+  const [projectLinkedIn, setProjectLinkedIn] = useState('')
   const [evtTitle, setEvtTitle] = useState('')
   const [evtDate, setEvtDate] = useState('')
   const [evtLocation, setEvtLocation] = useState('')
@@ -33,18 +36,37 @@ export default function Dashboard() {
       if (storedMessages) setMessages(JSON.parse(storedMessages))
       fetch('/api/drives').then(res => res.json()).then(setDrives).catch(() => {})
       fetch('/api/laureats').then(res => res.json()).then(setLaureats).catch(() => {})
+
+      const fetchFirestore = async () => {
+        try {
+          const { getDocs, collection } = await import('firebase/firestore')
+          const projSnap = await getDocs(collection(db, 'projects'))
+          const firebaseProjects = projSnap.docs.map(d => ({ id: d.id, ...d.data() }))
+          setProjects(prev => [...prev, ...firebaseProjects])
+        } catch (err) {
+          // ignore if firestore unavailable
+        }
+      }
+      fetchFirestore()
     }
   }, [router])
 
-  const addProject = (e) => {
+  const addProject = async (e) => {
     e.preventDefault()
-    const newProj = { name, link, desc }
+    const newProj = { name, link, desc, ownerLinkedIn: projectLinkedIn }
+    try {
+      const docRef = await addDoc(collection(db, 'projects'), newProj)
+      newProj.id = docRef.id
+    } catch (err) {
+      // ignore firestore errors in offline mode
+    }
     const updated = [...projects, newProj]
     setProjects(updated)
     localStorage.setItem('customProjects', JSON.stringify(updated))
     setName('')
     setLink('')
     setDesc('')
+    setProjectLinkedIn('')
   }
 
   const addEvent = (e) => {
@@ -84,7 +106,16 @@ export default function Dashboard() {
     setLaureatLinkedIn('')
   }
 
-  const removeProject = (index) => {
+  const removeProject = async (index) => {
+    const proj = projects[index]
+    if (proj && proj.id) {
+      try {
+        const { doc, deleteDoc } = await import('firebase/firestore')
+        await deleteDoc(doc(db, 'projects', proj.id))
+      } catch (err) {
+        // ignore firestore errors
+      }
+    }
     const updated = projects.filter((_, i) => i !== index)
     setProjects(updated)
     localStorage.setItem('customProjects', JSON.stringify(updated))
@@ -157,6 +188,13 @@ export default function Dashboard() {
             onChange={(e) => setDesc(e.target.value)}
             required
           />
+          <input
+            className="border p-2 w-full rounded"
+            type="text"
+            placeholder="LinkedIn link"
+            value={projectLinkedIn}
+            onChange={(e) => setProjectLinkedIn(e.target.value)}
+          />
           <button type="submit" className="bg-dsccGreen text-white px-4 py-2 rounded w-full">Add Project</button>
         </form>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
@@ -165,6 +203,9 @@ export default function Dashboard() {
               <h3 className="font-semibold">{p.name}</h3>
               <p className="text-sm mb-2">{p.desc}</p>
               <a href={p.link} className="text-dsccGreen underline block mb-2">GitHub</a>
+              {p.ownerLinkedIn && (
+                <a href={p.ownerLinkedIn} className="text-dsccGreen underline block mb-2">LinkedIn</a>
+              )}
               <button onClick={() => removeProject(i)} className="text-red-500 text-sm underline">Remove</button>
             </div>
           ))}
