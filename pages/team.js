@@ -112,7 +112,9 @@ const quotesByRole = {
   'Responsable Logistique': 'Tout est dans les détails.',
   'Responsable Compétition': 'Toujours prêt pour le défi.',
   'Responsable Journée': 'Créer des souvenirs.',
-  'Responsable Sponsoring': 'Trouver nos alliés.'
+  'Responsable Sponsoring': 'Trouver nos alliés.',
+  'Responsable Rédaction': 'Écrire pour informer.',
+  'Responsable Formation': 'Apprendre pour grandir.'
 }
 
 const pilotageTeam = [
@@ -127,9 +129,11 @@ const responsableTeam = [
   { name: 'Mohamed El Wazani', role: 'Responsable Design' },
   { name: 'Houciene Benhaddou', role: 'Responsable Maison de Science' },
   { name: 'Safae Azizi', role: 'Responsable Média' },
-  { name: 'Jinan', role: 'Responsable Montage' },
+  { name: 'Jinane Ait Elabd', role: 'Responsable Montage' },
   { name: 'Mostafa Alaoui', role: 'Responsable Logistique' },
   { name: 'Amine Chakri', role: 'Responsable Compétition' },
   { name: 'Oussama Moussawi', role: 'Responsable Journée' },
   { name: 'Badreddine Chihab', role: 'Responsable Sponsoring' },
+  { name: 'Wafae Zalouk', role: 'Responsable Rédaction' },
+  { name: 'Zakaria Taibi', role: 'Responsable Formation' },
 ]
