@@ -180,7 +180,7 @@ export default function Home() {
       <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 justify-items-center max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center max-w-5xl mx-auto">
             <TeamCard img="/team/jawad.jpg" name="Jawad Elkharrati" role="Président" />
             <TeamCard img="/team/aya.jpg" name="Aya El Farssia" role="Vice‑présidente" />
             <TeamCard img="/team/hamza.jpg" name="Hanae Cherif" role="Secrétaire" />
