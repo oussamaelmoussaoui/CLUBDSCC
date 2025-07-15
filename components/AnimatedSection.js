@@ -12,24 +12,43 @@ export default function AnimatedSection({
   const computeOffset = dir => {
     switch (dir) {
       case 'left':
-        return { x: distance, y: 0 }
+        return {
+          x: distance,
+          y: 0
+        }
       case 'right':
-        return { x: -distance, y: 0 }
+        return {
+          x: -distance,
+          y: 0
+        }
       case 'down':
-        return { x: 0, y: -distance }
+        return {
+          x: 0,
+          y: -distance
+        }
       default:
-        return { x: 0, y: distance }
+        return {
+          x: 0,
+          y: distance
+        }
     }
   }
 
   const variants = {
-    hidden: { opacity: 0, scale: 0.9, ...computeOffset(direction) },
+    hidden: { 
+      opacity: 0, 
+      scale: 0.9, 
+      ...computeOffset(direction) 
+    },
     visible: {
       opacity: 1,
       scale: 1,
       x: 0,
       y: 0,
-      transition: { staggerChildren: stagger, delayChildren: delay }
+      transition: { 
+        staggerChildren: stagger, 
+        delayChildren: delay 
+      }
     }
   }
 
@@ -38,8 +57,18 @@ export default function AnimatedSection({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
-      transition={{ duration: 0.8, delay }}
+      viewport={
+        {
+          once: true,
+          amount: 0.2
+        }
+      }
+      transition={
+        {
+          duration: 0.8,
+          delay
+        }
+      }
       variants={variants}
       {...props}
     >

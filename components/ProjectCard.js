@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function ProjectCard({ name, link, desc, ownerName, ownerLinkedIn }) {
   return (
-    <div className="border rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col justify-between bg-white">
+    <div className="border rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col justify-between bg-white hover:duration-300">
       <div>
         <h3 className="text-xl font-semibold mb-2">{name}</h3>
         <p className="text-sm mb-6">{desc}</p>

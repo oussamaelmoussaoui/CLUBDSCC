@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <Layout title="Notre Équipe">
       {/* Hero */}
-      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-96 md:h-[110vh] overflow-hidden flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/2.jpg)' }} />
         <div className="absolute inset-0 bg-gradient-to-r from-dsccGreen/70 to-dsccOrange/70" />
         <div className="relative z-10 text-center px-4">
@@ -32,7 +32,7 @@ export default function Page() {
 
       {/* Pilotage team */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe Pilotage</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {pilotageTeam.map((m, idx) => (
@@ -53,7 +53,7 @@ export default function Page() {
 
       {/* Responsables team */}
       <AnimatedSection className="py-20 bg-white" direction="right">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe Responsables</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {responsableTeam.map((m, idx) => (
@@ -76,7 +76,7 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
         <h2 className="text-3xl font-bold mb-4">Envie de rejoindre l'équipe&nbsp;?</h2>
         <p className="mb-6 max-w-2xl mx-auto text-lg">Nous recrutons chaque année de nouveaux membres motivés.</p>
-        <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded inline-flex items-center gap-2 transition">
+        <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded-full inline-flex items-center gap-2 transition">
           <span>Postuler</span>
           <FaArrowRight />
         </Link>
@@ -111,7 +111,7 @@ const quotesByRole = {
   'Responsable Montage': 'Donner vie aux images.',
   'Responsable Logistique': 'Tout est dans les détails.',
   'Responsable Compétition': 'Toujours prêt pour le défi.',
-  'Responsable Journée': 'Créer des souvenirs.',
+  'Responsable Journée': 'Chaque année une empreinte.',
   'Responsable Sponsoring': 'Trouver nos alliés.',
   'Responsable Rédaction': 'Écrire pour informer.',
   'Responsable Formation': 'Apprendre pour grandir.'
@@ -126,13 +126,13 @@ const pilotageTeam = [
 ]
 
 const responsableTeam = [
-  { name: 'Mohamed El Wazani', role: 'Responsable Design' },
+  { name: 'El Wazani Mohamed', role: 'Responsable Design' },
   { name: 'Houciene Benhaddou', role: 'Responsable Maison de Science' },
   { name: 'Safae Azizi', role: 'Responsable Média' },
   { name: 'Jinane Ait Elabd', role: 'Responsable Montage' },
   { name: 'Mostafa Alaoui', role: 'Responsable Logistique' },
   { name: 'Amine Chakri', role: 'Responsable Compétition' },
-  { name: 'Oussama Moussawi', role: 'Responsable Journée' },
+  { name: 'EL MOUSSAOUI Oussama', role: 'Responsable Journée' },
   { name: 'Badreddine Chihab', role: 'Responsable Sponsoring' },
   { name: 'Wafae Zalouk', role: 'Responsable Rédaction' },
   { name: 'Zakaria Taibi', role: 'Responsable Formation' },

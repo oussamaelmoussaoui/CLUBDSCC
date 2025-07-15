@@ -33,9 +33,21 @@ export default function Page() {
   }, [])
 
   const upcoming = [
-    { title: 'Atelier Python avancé', date: '15 juin 2024', location: 'Salle 101' },
-    { title: 'Conférence IA éthique', date: '28 juin 2024', location: 'Amphi A' },
-    { title: 'Hackathon Data4Good', date: '10 juillet 2024', location: 'ENSA' }
+    { 
+      title: 'Atelier Python avancé', 
+      date: '15 juin 2024', 
+      location: 'Salle 101' 
+    },
+    { 
+      title: 'Conférence IA éthique', 
+      date: '28 juin 2024', 
+      location: 'Amphi A' 
+    },
+    { 
+      title: 'Hackathon Data4Good', 
+      date: '10 juillet 2024', 
+      location: 'ENSA' 
+    }
   ]
   const allEvents = [...upcoming, ...customEvents]
   const images1 = [
@@ -59,7 +71,7 @@ export default function Page() {
   return (
     <Layout title="Événements">
       {/* Hero */}
-      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-96 md:h-[110vh] overflow-hidden flex items-center justify-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ backgroundImage: 'url(/2.jpg)' }}
@@ -87,9 +99,9 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Prochains rendez-vous</h2>
-          <div className="space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-6 max-w-3xl mx-auto ">
             {allEvents.map((e, i) => (
-              <div key={i} className="p-4 bg-white rounded shadow">
+              <div key={i} className="p-4 bg-white rounded shadow hover:shadow-lg hover:duration-150">
                 <h3 className="text-xl font-semibold flex items-center gap-2">
                   <FaRegCalendarAlt className="text-dsccOrange" /> {e.title}
                 </h3>

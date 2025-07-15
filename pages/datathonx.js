@@ -17,11 +17,26 @@ export default function Page() {
     { icon: FaTrophy, count: 3, label: 'Éditions' }
   ]
   const images = ["/datatthonx/Screenshot 2025-07-06 205518.png","/datatthonx/Screenshot 2025-07-06 205538.png","/datatthonx/Screenshot 2025-07-06 205607.png","/datatthonx/Screenshot 2025-07-06 205621.png","/datatthonx/Screenshot 2025-07-06 205642.png","/datatthonx/Screenshot 2025-07-06 205703.png","/datatthonx/Screenshot 2025-07-06 205734.png","/datatthonx/Screenshot 2025-07-06 205806.png","/datatthonx/Screenshot 2025-07-06 205826.png"]
-  const winners = [{img:"/datatthonx/winner.png", prize:"5000 DH"},{img:"/datatthonx/winner2.png", prize:"3000 DH"},{img:"/datatthonx/winner3.png", prize:"2000 DH"}];
+  const winners = [
+    {
+      img:"/datatthonx/winner.png",
+      prize:"5000 DH",
+      rank: "1ère place"
+    },
+    {
+      img:"/datatthonx/winner2.png",
+      prize:"3000 DH",
+      rank: "2ème place"
+    },
+    {
+      img:"/datatthonx/winner3.png",
+      prize:"2000 DH",
+      rank: "3ème place"
+    }];
   return (
     <Layout title="DatathonX">
       {/* Hero */}
-      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-96 md:h-[110vh] overflow-hidden flex items-center justify-center text-white">
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/1.jpg)' }} />
         <div className="absolute inset-0 bg-gradient-to-r from-dsccGreen/70 to-dsccOrange/70" />
         <div className="relative z-10 text-center px-4">
@@ -43,8 +58,8 @@ export default function Page() {
 
       {/* Details */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4 grid gap-8 md:grid-cols-3">
-          <div className="bg-white p-6 rounded shadow">
+        <div className="container mx-auto px-4 grid gap-8 md:grid-cols-3 max-w-5xl">
+          <div className="bg-white p-6 rounded shadow hover:shadow-lg hover:duration-150">
             <h2 className="text-2xl font-semibold mb-2">Domaines explorés</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li>Santé</li>
@@ -53,7 +68,7 @@ export default function Page() {
               <li>Planning</li>
             </ul>
           </div>
-          <div className="bg-white p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow hover:shadow-lg hover:duration-150">
             <h2 className="text-2xl font-semibold mb-2">Planning</h2>
             <table className="table-auto text-left">
               <tbody>
@@ -68,7 +83,7 @@ export default function Page() {
               </tbody>
             </table>
           </div>
-          <div className="bg-white p-6 rounded shadow">
+          <div className="bg-white p-6 rounded shadow hover:shadow-lg hover:duration-150">
             <h2 className="text-2xl font-semibold mb-2">Livrables attendus</h2>
             <ul className="list-disc pl-5 space-y-1">
               <li>Rapport détaillé</li>
@@ -81,14 +96,15 @@ export default function Page() {
 
       {/* Highlights */}
       <AnimatedSection className="py-20 bg-white" direction="right">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4  max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-8">Éditions précédentes</h2>
           <ImageSlider images={images} />
         </div>
       </AnimatedSection>
+      
       {/* Winners */}
       <AnimatedSection className="py-20 bg-white" direction="up">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-8">Palmarès 2025</h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {winners.map((w, i) => (
@@ -98,12 +114,14 @@ export default function Page() {
                   alt={`winner ${i + 1}`}
                   className="h-40 w-full object-cover object-top rounded mb-4"
                 />
-                <p className="font-semibold text-lg">{w.prize}</p>
+                <p className="font-semibold text-lg text-dsccOrange">{w.prize}</p>
+                <p className='text-base text-dsccGreen'>{w.rank}</p>
               </div>
             ))}
           </div>
         </div>
       </AnimatedSection>
+      
       {/* Join call */}
       <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
         <h2 className="text-3xl font-bold mb-4">Participez à la prochaine édition&nbsp;!</h2>

@@ -8,15 +8,15 @@ module.exports = {
   theme: {
     extend: {
       
-colors: {
+      colors: {
         dsccGreen: "#00909c",
         dsccOrange: "#E67700",
         darkText: "#222222",
         lightGray: "#F8F8F8",
-      }
-,
+      },
+      
       fontFamily:{
-        sans:['Inter', 'sans-serif']
+        sans:['Sora', 'sans-serif']
       }
     },
   },

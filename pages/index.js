@@ -8,9 +8,9 @@ import Image from 'next/image';
 import {
   FaRegCalendarAlt,
   FaUserPlus,
-  FaRocket,
   FaLightbulb,
   FaHandshake,
+  FaUserGraduate,
   FaFacebook,
   FaInstagram,
   FaLinkedin,
@@ -37,12 +37,13 @@ export default function Home() {
 
   return (
     <Layout title="Accueil">
+      
       {/* Hero */}
-      <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-white">
-        <AnimatePresence mode="wait">
+      <section className="relative w-full h-[110vh] overflow-hidden flex items-center justify-center text-white">
+        <AnimatePresence mode="sync">
           <motion.div
             key={slides[index]}
-            className="absolute inset-0 bg-cover bg-center opacity-80"
+            className="absolute inset-0 bg-cover bg-center opacity-80 "
             style={{ backgroundImage: `url(${slides[index]})` }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 0.8, x: 0 }}
@@ -50,7 +51,9 @@ export default function Home() {
             transition={{ duration: 1 }}
           />
         </AnimatePresence>
+        
         <div className="absolute inset-0 bg-dsccGreen/70" />
+
         <motion.div
           className="relative z-10 text-center px-4"
           initial={{ opacity: 0, y: -20 }}
@@ -63,17 +66,18 @@ export default function Home() {
             l’innovation et la collaboration autour de la science des données.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-md transition inline-flex items-center gap-2">
+            <Link href="/events" className="bg-dsccOrange hover:bg-white hover:text-dsccOrange text-white font-semibold px-6 py-3 rounded-full transition inline-flex items-center gap-2">
               <span>Nos Événements</span>
               <FaRegCalendarAlt />
             </Link>
-            <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-md transition inline-flex items-center gap-2">
+            <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccGreen hover:text-white font-semibold px-6 py-3 rounded-full transition inline-flex items-center gap-2">
               <span>Rejoindre le Club</span>
               <FaUserPlus />
             </Link>
           </div>
         </motion.div>
       </section>
+      
       {/* Stats */}
       <AnimatedSection
         id="stats"
@@ -88,9 +92,9 @@ export default function Home() {
 
       {/* Trust */}
       <AnimatedSection id="trust" className="py-20 bg-gray-50" direction="right">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-2">
             <div className="flex flex-nowrap items-center gap-10 w-max sponsor-scroll">
               {Array.from({ length: 50 }, (_, i) => {
                 const logos = [
@@ -117,7 +121,7 @@ export default function Home() {
 
       {/* About */}
       <AnimatedSection id="about" className="py-20 bg-white" direction="left">
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-center max-w-5xl">
           <h2 className="text-3xl font-bold mb-6">À propos du club</h2>
           <p className="max-w-3xl mx-auto text-lg mb-10">
             Le Club Data Science a pour mission de fournir un environnement d’apprentissage,
@@ -125,24 +129,25 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Objective icon={FaLightbulb} title="Innovation"/>
-            <Objective icon={FaRocket} title="Apprentissage"/>
+            <Objective icon={FaUserGraduate} title="Apprentissage"/>
             <Objective icon={FaHandshake} title="Collaboration"/>
           </div>
         </div>
       </AnimatedSection>
 
+      
       {/* Events Preview */}
       <AnimatedSection id="events" className="py-20 bg-lightGray" direction="right">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos Événements</h2>
-          <div className="masonry">
+          <div className="masonry grid drid-cols-1 sm:grid-cols-2 gap-6">
             <EventCard img="/event1.jpg" title="Atelier Machine Learning" tag="Atelier" />
             <EventCard img="/event2.jpg" title="Introduction à Python" tag="Session" />
             <EventCard img="/event3.jpg" title="Live IA" tag="Live" />
             <EventCard img="/event4.jpg" title="Initiation DataViz" tag="Atelier" />
           </div>
           <div className="text-center mt-10">
-            <Link href="/events" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+            <Link href="/events" className="text-dsccGreen bg-white py-2 px-4 rounded-full hover:text-dsccOrange inline-flex items-center gap-1 hover:gap-3 hover:duration-75">
               <span>Voir tous les événements</span>
               <FaArrowRight />
             </Link>
@@ -150,17 +155,19 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
+      
       {/* Projects Preview */}
       <AnimatedSection id="projects" className="py-20 bg-white" direction="left">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Projets du Club</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {projects.slice(0, 3).map((p, idx) => (
               <ProjectCard key={idx} {...p} />
             ))}
           </div>
+
           <div className="text-center mt-10">
-            <Link href="/projects" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+            <Link href="/projects" className="text-dsccGreen bg-lightGray py-2 px-4 rounded-full hover:text-dsccOrange inline-flex items-center gap-1 hover:gap-3 hover:duration-75">
               <span>Voir tous les projets</span>
               <FaArrowRight />
             </Link>
@@ -168,11 +175,12 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
+      
       {/* Team Preview */}
       <AnimatedSection id="team" className="py-20 bg-lightGray" direction="right">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Équipe actuelle</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 justify-items-center max-w-5xl mx-auto">
             <TeamCard img="/team/jawad.jpg" name="Jawad Elkharrati" role="Président" />
             <TeamCard img="/team/aya.jpg" name="Aya El Farssia" role="Vice‑présidente" />
             <TeamCard img="/team/hamza.jpg" name="Hanae Cherif" role="Secrétaire" />
@@ -180,7 +188,7 @@ export default function Home() {
             <TeamCard img="/team/iyad.jpg" name="Iyad Beddidi" role="Responsable RH" />
           </div>
           <div className="text-center mt-10">
-            <Link href="/team" className="text-dsccGreen underline hover:text-dsccOrange inline-flex items-center gap-1">
+            <Link href="/team" className="text-dsccGreen bg-white py-2 px-4 rounded-full hover:text-dsccOrange inline-flex items-center gap-1 hover:gap-3 hover:duration-75">
               <span>Découvrir toute l’équipe</span>
               <FaArrowRight />
             </Link>
@@ -188,43 +196,44 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      {/* Réseaux Sociaux */}
-      <AnimatedSection id="socials" className="py-20 bg-white" direction="up">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Réseaux sociaux</h2>
-          <div className="flex justify-center flex-wrap gap-6">
-            <SocialIcon
-              href="https://www.instagram.com/clubdscc/"
-              icon={FaInstagram}
-            />
-            <SocialIcon
-              href="https://ma.linkedin.com/company/club-data-science-cloud-computing"
-              icon={FaLinkedin}
-            />
-            <SocialIcon
-              href="https://github.com/jawad-elkharrati/"
-              icon={FaGithub}
-            />
-            <SocialIcon
-              href="https://www.facebook.com/clubdscc/"
-              icon={FaFacebook}
-            />
+      
+      {/* Contact */}
+      <AnimatedSection id="contact" className=" bg-dsccGreen text-white" direction="up" delay={0.2}>
+        <div className="container items-center grid gap-14 grid-flow-row mx-auto px-4 max-w-5xl lg:grid-cols-2 lg:grid-flow-col py-40">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-6">Contact</h2>
+            <p className="mb-8">Une question ? Un projet ? Envoyez‑nous un message !</p>
+            <form action="https://formspree.io/f/your-form-id" method="POST" className="max-w-xl mx-auto grid grid-cols-1 gap-4">
+              <input type="text" name="name" placeholder="Nom" className="p-3 rounded-md text-darkText" required />
+              <input type="email" name="email" placeholder="Email" className="p-3 rounded-md text-darkText" required />
+              <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md text-darkText" required />
+              <button className="bg-dsccOrange hover:bg-white hover:text-dsccOrange font-semibold py-3 rounded-md transition">Envoyer</button>
+            </form>
+          </div>
+
+          <div className="container mx-auto text-center h-[27rem] flex flex-col lg:gap-32">
+            <h2 className="text-3xl font-bold mb-8">Réseaux sociaux</h2>
+            <div className="flex justify-center flex-wrap gap-6">
+              <SocialIcon
+                href="https://www.instagram.com/clubdscc/"
+                icon={FaInstagram}
+              />
+              <SocialIcon
+                href="https://ma.linkedin.com/company/club-data-science-cloud-computing"
+                icon={FaLinkedin}
+              />
+              <SocialIcon
+                href="https://github.com/jawad-elkharrati/"
+                icon={FaGithub}
+              />
+              <SocialIcon
+                href="https://www.facebook.com/clubdscc/"
+                icon={FaFacebook}
+              />
+            </div>
           </div>
         </div>
-      </AnimatedSection>
-
-      {/* Contact */}
-      <AnimatedSection id="contact" className="py-20 bg-dsccGreen text-white" direction="up">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Contact</h2>
-          <p className="mb-8">Une question ? Un projet ? Envoyez‑nous un message !</p>
-          <form action="https://formspree.io/f/your-form-id" method="POST" className="max-w-xl mx-auto grid grid-cols-1 gap-4">
-            <input type="text" name="name" placeholder="Nom" className="p-3 rounded-md text-darkText" required />
-            <input type="email" name="email" placeholder="Email" className="p-3 rounded-md text-darkText" required />
-            <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md text-darkText" required />
-            <button className="bg-dsccOrange hover:bg-white hover:text-dsccOrange font-semibold py-3 rounded-md transition">Envoyer</button>
-          </form>
-        </div>
+        
       </AnimatedSection>
     </Layout>
   )
@@ -241,8 +250,8 @@ function Objective({ icon: Icon, title }){
 
 function EventCard({ img, title, tag }){
   return (
-    <motion.div
-      className="masonry-item bg-white rounded-lg shadow overflow-hidden"
+    <div
+      className="masonry-item bg-white rounded-lg shadow hover:shadow-lg overflow-hidden hover:duration-300"
       whileHover={{ scale: 1.03 }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -254,7 +263,7 @@ function EventCard({ img, title, tag }){
         <span className="text-xs uppercase tracking-wider text-dsccOrange">{tag}</span>
         <h4 className="text-lg font-semibold">{title}</h4>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -267,7 +276,7 @@ function TeamCard({ img, name, role }){
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ type: 'spring', stiffness: 300 }}
+      transition={{ type: 'spring', stiffness: 100 }}
     >
       <div className="relative w-32 h-32 mx-auto mb-4">
         <Image src={img} alt={name} fill className="rounded-full object-cover ring-4 ring-dsccGreen" />
@@ -299,8 +308,13 @@ function SocialIcon({ icon: Icon, href }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.1 }}
-      className="text-3xl p-4 rounded-full bg-dsccGreen/10 text-dsccGreen hover:bg-dsccGreen hover:text-white transition"
+      className="text-3xl p-4 rounded-full bg-white text-dsccGreen 
+      hover:bg-dsccOrange hover:text-white transition hover:shadow-lg"
+      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ type: 'spring', stiffness: 100, duration: 0.3 }}
     >
       <Icon />
     </motion.a>

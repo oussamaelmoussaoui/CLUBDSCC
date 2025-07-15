@@ -14,14 +14,20 @@ import {
   FaBullseye,
   FaHistory,
   FaArrowRight,
-  FaCheckCircle
+  FaCheckCircle,
+  FaAddressBook,
+  FaAccessibleIcon,
+  FaGofore,
+  FaGift,
+  FaGifts,
+  FaObjectGroup
 } from 'react-icons/fa'
 
 export default function Page() {
   return (
     <Layout title="À propos">
       {/* Hero */}
-      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
+      <section className="relative w-full h-96 md:h-[110vh] overflow-hidden flex items-center justify-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ backgroundImage: 'url(/1.jpg)' }}
@@ -45,23 +51,62 @@ export default function Page() {
         </div>
       </AnimatedSection>
 
-      {/* Values */}
+      {/* Mission & Vision */}
       <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Nos valeurs</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Objective icon={FaLightbulb} title="Innovation" />
-            <Objective icon={FaRocket} title="Apprentissage" />
-            <Objective icon={FaHandshake} title="Collaboration" />
+        <div className="container mx-auto space-y-24 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <Image src="/1.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+                <FaBullseye /> Notre mission
+              </h2>
+              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
+                Promouvoir l'apprentissage de la science des données et favoriser
+                une culture de partage au sein de l'ENSA. Nous croyons que la
+                collaboration permet à chacun de développer son potentiel.
+              </p>
+            </div>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="md:order-2">
+              <Image src="/IMG-20250215-WA0007.jpg" alt="vision" width={600} height={400} className="rounded-lg shadow" />
+            </div>
+            <div className="text-center md:text-left md:order-1">
+              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+                <FaRocket /> Notre vision
+              </h2>
+              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
+                Démocratiser les outils de la data science et inspirer une
+                nouvelle génération d'innovateurs capable de résoudre les
+                défis de demain.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <Image src="/1.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-2 flex items-center justify-center md:justify-start gap-2">
+                <FaObjectGroup /> Nos valeurs
+              </h2>
+              <div className="grid">
+                <Objective icon={FaLightbulb} className="flex" title="Innovation" />
+                <Objective icon={FaRocket} title="Apprentissage" />
+                <Objective icon={FaHandshake} title="Collaboration" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </AnimatedSection>
 
+
       {/* Trust */}
       <AnimatedSection className="py-20 bg-white" direction="right">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-8">Ils nous font confiance</h2>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden h-40">
             <div className="flex flex-nowrap items-center gap-10 w-max sponsor-scroll">
               {Array.from({ length: 20 }, (_, i) => {
                 const logos = [
@@ -85,43 +130,9 @@ export default function Page() {
         </div>
       </AnimatedSection>
 
-      {/* Mission & Vision */}
-      <AnimatedSection className="py-20 bg-lightGray" direction="left">
-        <div className="container mx-auto px-4 space-y-24">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <Image src="/1.jpg" alt="mission" width={600} height={400} className="rounded-lg shadow" />
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
-                <FaBullseye /> Notre mission
-              </h2>
-              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
-                Promouvoir l'apprentissage de la science des données et favoriser
-                une culture de partage au sein de l'ENSA. Nous croyons que la
-                collaboration permet à chacun de développer son potentiel.
-              </p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="md:order-2">
-              <Image src="/IMG-20250215-WA0007.jpg" alt="vision" width={600} height={400} className="rounded-lg shadow" />
-            </div>
-            <div className="text-center md:text-left md:order-1">
-              <h2 className="text-3xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
-                <FaRocket /> Notre vision
-              </h2>
-              <p className="max-w-3xl mx-auto md:mx-0 text-lg">
-                Démocratiser les outils de la data science et inspirer une
-                nouvelle génération d'innovateurs capable de résoudre les
-                défis de demain.
-              </p>
-            </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
       {/* History */}
-      <AnimatedSection className="py-20 bg-white" direction="right">
-        <div className="container mx-auto px-4">
+      <AnimatedSection className="py-20 bg-lightGray" direction="right">
+        <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2">
             <FaHistory /> Un peu d'histoire
           </h2>
@@ -157,19 +168,19 @@ export default function Page() {
       </AnimatedSection>
 
       {/* Activities */}
-      <AnimatedSection className="py-20 bg-lightGray" direction="up">
-        <div className="container mx-auto px-4">
+      <AnimatedSection className="py-20 bg-white" direction="up">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Ce que nous faisons</h2>
-          <ul className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4 text-lg">
-            <li className="flex items-start gap-2">
+          <ul className="grid sm:grid-cols-2 gap-10 text-lg bg-white ">
+            <li className="flex items-start gap-2  ">
               <FaCheckCircle className="text-dsccOrange mt-1" />
               <span>Organisation d'ateliers techniques et de formations</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2  ">
               <FaCheckCircle className="text-dsccOrange mt-1" />
               <span>Conférences avec des experts du domaine</span>
             </li>
-            <li className="flex items-start gap-2">
+            <li className="flex items-start gap-2 ">
               <FaCheckCircle className="text-dsccOrange mt-1" />
               <span>Participation à des compétitions et datathons</span>
             </li>
@@ -182,10 +193,10 @@ export default function Page() {
       </AnimatedSection>
 
       {/* Why join */}
-      <AnimatedSection className="py-20 bg-white" direction="right">
-        <div className="container mx-auto px-4">
+      <AnimatedSection className="py-20 bg-lightGray" direction="right">
+        <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl font-bold mb-8 text-center">Pourquoi nous rejoindre&nbsp;?</h2>
-          <ul className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4 text-lg">
+          <ul className="mx-auto grid sm:grid-cols-2 gap-10 text-lg">
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-dsccOrange mt-1" />
               <span>Développer vos compétences sur des projets concrets</span>
@@ -213,7 +224,7 @@ export default function Page() {
           Rejoignez la communauté et participez à l'aventure data science avec
           nous&nbsp;!
         </p>
-        <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded inline-flex items-center gap-2 transition">
+        <Link href="/join" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded-full inline-flex items-center gap-2 transition">
           <span>Rejoindre le club</span>
           <FaArrowRight />
         </Link>
@@ -224,11 +235,11 @@ export default function Page() {
 
 function Objective({ icon: Icon, title }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="text-dsccOrange text-5xl mb-4">
+    <div className="flex flex-row justify-start gap-4 items-center py-6 ">
+      <div className="text-dsccOrange text-4xl">
         <Icon />
       </div>
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <p className="font-semibold">{title}</p>
     </div>
   )
 }
@@ -248,10 +259,10 @@ function Timeline() {
     { year: '2023', text: 'Organisation de DatathonX', Icon: FaRocket }
   ]
   return (
-    <ol className="relative border-l-2 border-dsccGreen ml-4 my-8">
+    <ol className="relative border-l-2 border-dsccGreen ml-4 my-10">
       {steps.map((s, i) => (
         <li key={i} className="mb-8 ml-6">
-          <span className="absolute -left-3 flex items-center justify-center w-6 h-6 bg-dsccGreen rounded-full text-white text-xs">
+          <span className="absolute -left-5 flex items-center justify-center w-10 h-6 bg-dsccGreen rounded-full text-white text-xs">
             {s.year}
           </span>
           <div className="flex items-center gap-2 mt-1">

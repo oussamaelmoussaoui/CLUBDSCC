@@ -30,7 +30,7 @@ body {
 
   /* Faster scrolling for sponsor logos */
   .sponsor-scroll {
-    animation: slideLeft 20s linear infinite;
+    animation: slideLeft 40s linear infinite;
   }
 
 @layer utilities {
