@@ -40,6 +40,7 @@ export default function AnimatedSection({
       scale: 0.9, 
       ...computeOffset(direction) 
     },
+    hidden: { opacity: 0, scale: 0.9, ...computeOffset(direction) },
     visible: {
       opacity: 1,
       scale: 1,

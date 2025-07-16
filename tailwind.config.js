@@ -7,7 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
       colors: {
         dsccGreen: "#00909c",
         dsccOrange: "#E67700",
