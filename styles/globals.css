@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 @font-face {
   font-family: 'Sora';
   src: url('/fonts/Sora-VariableFont_wght.ttf') format('truetype');
@@ -11,8 +10,6 @@
 }
 
 
-=======
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
 html {
   scroll-behavior: smooth;
 }
@@ -41,11 +38,7 @@ body {
 
   /* Faster scrolling for sponsor logos */
   .sponsor-scroll {
-<<<<<<< HEAD
     animation: slideLeft 40s linear infinite;
-=======
-    animation: slideLeft 20s linear infinite;
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
   }
 
 @layer utilities {

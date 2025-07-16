@@ -21,11 +21,7 @@ export default function Page() {
   return (
     <Layout title="Ressources">
       {/* Hero */}
-<<<<<<< HEAD
       <section className="relative w-full h-96 md:h-[110vh] overflow-hidden flex items-center justify-center text-white">
-=======
-      <section className="relative w-full h-64 md:h-[400px] overflow-hidden flex items-center justify-center text-white">
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
         <div className="absolute inset-0 bg-cover bg-center opacity-80" style={{ backgroundImage: 'url(/1.jpg)' }} />
         <div className="absolute inset-0 bg-gradient-to-r from-dsccGreen/70 to-dsccOrange/70" />
         <div className="relative z-10 text-center px-4">
@@ -36,7 +32,6 @@ export default function Page() {
 
       {/* Resources */}
       <AnimatedSection className="py-20 bg-white" direction="left">
-<<<<<<< HEAD
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
@@ -66,20 +61,6 @@ export default function Page() {
             
             <div className="bg-dsccGreen/5 p-8 rounded-lg left md:text-center">
               <h2 className="text-3xl font-bold mb-4 left md:text-center">Accès aux Drives du Club</h2>
-=======
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4 text-center md:text-left">Outils recommandés</h2>
-              <ul className="list-disc pl-5 space-y-1 max-w-md mx-auto md:mx-0">
-                <li><a href="https://www.python.org/downloads/" className="text-dsccGreen underline">Python</a></li>
-                <li><a href="https://code.visualstudio.com/" className="text-dsccGreen underline">Visual Studio Code</a></li>
-                <li><a href="https://jupyter.org/install" className="text-dsccGreen underline">Jupyter Notebook</a></li>
-              </ul>
-            </div>
-            <div className="bg-dsccGreen/5 p-8 rounded-lg text-center">
-              <h2 className="text-3xl font-bold mb-4">Accès aux Drives du Club</h2>
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
               <p className="mb-6">Retrouvez toutes nos ressources partagées sur Google Drive.</p>
               <ul className="space-y-2">
                 {drives.map((d, i) => (
@@ -92,10 +73,6 @@ export default function Page() {
                 ))}
               </ul>
             </div>
-<<<<<<< HEAD
-          
-=======
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
           </div>
         </div>
       </AnimatedSection>
@@ -116,11 +93,7 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-dsccGreen text-white text-center" direction="up">
         <h2 className="text-3xl font-bold mb-4">Vous avez une ressource à partager&nbsp;?</h2>
         <p className="mb-6 max-w-2xl mx-auto text-lg">Contribuez à l'enrichissement de notre bibliothèque.</p>
-<<<<<<< HEAD
         <Link href="/contact" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded-full inline-flex items-center gap-2 transition">
-=======
-        <Link href="/contact" className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded inline-flex items-center gap-2 transition">
->>>>>>> fb8aa15fb11f121a66b31cbd15c5f59344629462
           <span>Nous contacter</span>
           <FaArrowRight />
         </Link>
