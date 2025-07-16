@@ -34,7 +34,7 @@ export default function Page() {
       <AnimatedSection className="py-20 bg-white" direction="left">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            
+
             <div className="bg-dsccGreen/5 p-8 rounded-lg left md:text-center h-full w-full">
               <h2 className="text-3xl font-bold mb-4 text-left md:text-center">Outils recommandés</h2>
               <ul className="pl-5 space-y-1 max-w-md mx-auto md:mx-0">
@@ -58,7 +58,7 @@ export default function Page() {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-dsccGreen/5 p-8 rounded-lg left md:text-center">
               <h2 className="text-3xl font-bold mb-4 left md:text-center">Accès aux Drives du Club</h2>
               <p className="mb-6">Retrouvez toutes nos ressources partagées sur Google Drive.</p>
