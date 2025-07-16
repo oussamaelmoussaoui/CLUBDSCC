@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-darkText bg-white dark:bg-darkText dark:text-white;
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(100%); }
+}
+
+  .slide-right {
+    animation: slideRight 40s linear infinite;
+  }
+
+@keyframes slideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+  .slide-left {
+    animation: slideLeft 40s linear infinite;
+  }
+
+  /* Faster scrolling for sponsor logos */
+  .sponsor-scroll {
+    animation: slideLeft 20s linear infinite;
+  }
+
+@layer utilities {
+  .masonry {
+    column-gap: 1rem;
+  }
+  @screen sm {
+    .masonry { column-count: 2; }
+  }
+  @screen md {
+    .masonry { column-count: 3; }
+  }
+  @screen lg {
+    .masonry { column-count: 4; }
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar{display:none;}
+.no-scrollbar{ -ms-overflow-style: none; scrollbar-width: none;}
