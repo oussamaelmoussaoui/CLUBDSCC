@@ -2,6 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/team": "pages/team.js"
+  "/team": "pages/team.js",
+  "/about": "pages/about.js",
+  "/events": "pages/events.js",
+  "/datathonx": "pages/datathonx.js"
 }

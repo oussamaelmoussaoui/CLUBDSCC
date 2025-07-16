@@ -130,7 +130,7 @@ export default function Page() {
         </p>
         <Link
           href="/contact"
-          className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded inline-flex items-center gap-2 transition"
+          className="bg-white text-dsccGreen hover:bg-dsccOrange hover:text-white px-6 py-3 rounded-full inline-flex items-center gap-2 transition"
         >
           <span>Nous contacter</span>
           <FaArrowRight />
